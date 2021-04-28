@@ -1,0 +1,25 @@
+{
+  "name": "mtmsbandsite",
+  "version": "1.0.0",
+  "description": "The online website for Mount Tabor Middle School's band class!",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SoftwareFuze/MTMSBandSite.git"
+  },
+  "keywords": [
+    "MTMS Band",
+    "Online Site",
+    "MTMS",
+    "Band Info"
+  ],
+  "author": "Atticus C <atticus@softwarefuze.com> (https://softwarefuze.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SoftwareFuze/MTMSBandSite/issues"
+  },
+  "homepage": "https://github.com/SoftwareFuze/MTMSBandSite#readme"
+}
