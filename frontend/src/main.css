@@ -1,0 +1,300 @@
+@import url(https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,900;1,400;1,900&display=swap);
+:root {
+    --primary-blue: #365495;
+    --primary-white: #fff;
+    --secondary-yellow: #ffff90
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Red Hat Display'
+}
+
+body {
+    background: #fff;
+    overflow-x: hidden
+}
+
+nav {
+    background: var(--primary-blue);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em;
+    box-shadow: 0 6px 12px #00000050;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2
+}
+
+nav .logo {
+    display: flex;
+    justify-content: space-between;
+    width: max-content;
+    align-items: center;
+    height: 80px
+}
+
+nav .logo img {
+    height: 100%;
+    margin-right: .6em
+}
+
+nav .logo h4 {
+    font-size: 1.6em;
+    color: var(--secondary-yellow)
+}
+
+nav .nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+nav .nav-links>a {
+    font-size: 1.3em;
+    color: #fff;
+    text-transform: capitalize;
+    margin: .4em;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative
+}
+
+.nav-links>a::after {
+    content: "";
+    width: 0%;
+    background: #fff;
+    height: 2px;
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: .4s
+}
+
+.nav-links>a:hover::after {
+    width: 100%;
+}
+
+.nav-links .auth a {
+    margin: .5em;
+    font-size: 1.2em;
+    background: var(--primary-white);
+    padding: .2em .5em;
+    cursor: pointer;
+    color: #000;
+    text-decoration: none;
+}
+
+.nav-links .auth a:hover {
+    background: #eee;
+}
+
+.nav-links .login {
+    font-size: 1.2em;
+    padding: .1em .3em;
+    background: var(--primary-blue);
+    color: #fff;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    margin: 0 .6em 0 .3em;
+    cursor: pointer
+}
+
+.nav-links .signup {
+    font-size: 1.2em;
+    padding: .1em .3em;
+    background: var(--primary-white);
+    border-radius: 10px;
+    color: var(--primary-blue);
+    border: 1px solid #fff;
+    cursor: pointer
+}
+
+.banner {
+    width: 100%;
+    height: calc(100vh - (80px - 1em));
+    max-height: 800px;
+    margin-top: calc(80px - 1em);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(90deg, #fff, transparent), url(./background.png);
+    background-position: top;
+    background-size: cover;
+    position: relative;
+    z-index: 1
+}
+
+.banner .banner-content {
+    width: 90%;
+    max-width: 700px;
+    height: max-content;
+    border: 10px solid #fff;
+    padding: 1.5em 2em;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(90deg, #efefef, #efefef80);
+    padding-bottom: 2em;
+}
+
+.banner .strike-through {
+    width: 60%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(90deg, var(--secondary-yellow), #ffff9070);
+    right: 0;
+    top: 0;
+    transform: skew(-20deg) translateX(20%)
+}
+
+.banner-content h1 {
+    font-size: 2.3em;
+    margin-bottom: .3em
+}
+
+.banner-content h4 {
+    font-size: 1.3em;
+    font-weight: lighter
+}
+
+.banner-content a {
+    font-size: 1.2em;
+    padding: .4em .8em;
+    text-decoration: none;
+    color: #fff;
+    background: var(--primary-blue);
+    border: none;
+    position: relative;
+    top: 10px;
+    cursor: pointer;
+}
+
+.banner-content a:hover {
+    cursor: pointer;
+    background: #2b4783
+}
+
+@media (max-width:800px) {
+    nav .nav-links a {
+        font-size: 1.1em
+    }
+    nav .nav-links button {
+        font-size: 1em!important
+    }
+}
+
+@media (max-width:720px) {
+    nav .logo h4 {
+        display: none
+    }
+}
+
+@media (max-width:540px) {
+    nav .logo {
+        display: none
+    }
+    nav {
+        height: 70px;
+        justify-content: flex-start
+    }
+    .banner-content h1 {
+        font-size: 1.8em
+    }
+    .banner-content h4 {
+        font-size: 1.1em
+    }
+    .banner-content button {
+        font-size: 1em
+    }
+}
+
+@media (max-width:420px) {
+    nav .nav-links a {
+        font-size: .9em
+    }
+    nav .nav-links button {
+        font-size: .9em!important;
+        padding: .1em .6em!important
+    }
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 3em 2em;
+}
+
+main h1 {
+    font-size: 2.2em;
+    text-align: center;
+    margin-top: 1em;
+}
+
+main>h4 {
+    text-transform: capitalize;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+main ol {
+    max-width: 800px;
+    margin-top: 1em;
+    padding: 2em 3em;
+    border: 1px solid #eee;
+    border-radius: 10px;
+}
+
+main ol li {
+    margin-bottom: 1em;
+}
+
+main ol li span {
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    main ol {
+        border: none;
+        padding: none !important;
+    }
+    main {
+        padding: 3em 0em;
+    }
+}
+
+main .practice-books {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1.5em 0;
+}
+
+.practice-books .book {
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 1em;
+}
+
+.practice-books .book h2 {
+    font-weight: lighter;
+    margin-bottom: .5em;
+}
+
+.metronome {
+    width: 500px;
+    height: 300px;
+}

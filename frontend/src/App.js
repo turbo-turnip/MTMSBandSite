@@ -1,6 +1,7 @@
-import '../main.css';
+import './main.css';
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './Pages/Home/Home';
 
 
 export default function App(props) {
