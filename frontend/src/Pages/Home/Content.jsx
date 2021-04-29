@@ -34,20 +34,20 @@ export default function Content() {
             <div className="practice-books">
                 <div className="book">
                     <h2>Beginning Band</h2>
-                    <a href="https://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Dmi&field-keywords=MEASURES+OF+SUCCESS+BOOK+1" target="_blank">
-                        <img src="http://mttaborband.weebly.com/uploads/2/0/7/8/20780396/475626571_orig.jpg" />
+                    <a href="https://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Dmi&field-keywords=MEASURES+OF+SUCCESS+BOOK+1" target="_blank" rel="noreferrer">
+                        <img alt="" src="http://mttaborband.weebly.com/uploads/2/0/7/8/20780396/475626571_orig.jpg" />
                     </a>
                 </div>
                 <div className="book">
                     <h2>Intermediate Band</h2>
-                    <a href="https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Dmi&field-keywords=measures+of+success+book+2&rh=n%3A11091801%2Ck%3Ameasures+of+success+book+2" target="_blank">
-                        <img src="http://mttaborband.weebly.com/uploads/2/0/7/8/20780396/fjhbb210_orig.jpg" />
+                    <a href="https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Dmi&field-keywords=measures+of+success+book+2&rh=n%3A11091801%2Ck%3Ameasures+of+success+book+2" target="_blank" rel="noreferrer">
+                        <img alt="" src="http://mttaborband.weebly.com/uploads/2/0/7/8/20780396/fjhbb210_orig.jpg" />
                     </a>
                 </div>
                 <div className="book">
                     <h2>Advanced Band</h2>
-                    <a href="https://www.amazon.com/s?k=Habits+of+a+Successful+Middle+School+Musician" target="_blank">
-                        <img src="http://mttaborband.weebly.com/uploads/2/0/7/8/20780396/published/habitsimage.png?1537310015" />
+                    <a href="https://www.amazon.com/s?k=Habits+of+a+Successful+Middle+School+Musician" target="_blank" rel="noreferrer">
+                        <img alt="" src="http://mttaborband.weebly.com/uploads/2/0/7/8/20780396/published/habitsimage.png?1537310015" />
                     </a>
                 </div>
             </div>

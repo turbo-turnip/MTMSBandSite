@@ -298,3 +298,66 @@ main .practice-books {
     width: 500px;
     height: 300px;
 }
+
+.register {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 1.2em 1em;
+    background: var(--primary-blue);
+    height: 100vh;
+    width: 100%;
+}
+
+.register h1 {
+    margin-bottom: .5em;
+    text-align: center;
+}
+
+.auth-form {
+    width: 100%;
+    background: var(--primary-white);
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 1em 1.5em;
+    min-height: 400px;
+    position: relative;
+    margin-top: 1em;
+}
+
+.auth-form>div {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: .8em;
+}
+
+.auth-form .auth-input {
+    width: 100%;
+    font-size: 1.2em;
+    padding: .3em .5em;
+    border: 1px solid #ddd;
+    background: #f5f5f5;
+    margin-top: .2em;
+}
+
+.auth-label {
+    font-size: 1.2em;
+    margin-top: .3em;
+}
+
+.auth-submit {
+    font-size: 1.2em;
+    width: calc(100% - (1.5em * 2));
+    align-self: center;
+    padding: .3em 0;
+    border: none;
+    background: var(--primary-blue);
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    bottom: 1em;
+}
