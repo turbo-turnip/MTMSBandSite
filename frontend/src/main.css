@@ -361,3 +361,31 @@ main .practice-books {
     position: absolute;
     bottom: 1em;
 }
+.popup {
+    width: 90%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-top: 1em;
+    transition: transform .4s ease-out;
+    max-width: 500px;
+    padding: .5em 1em;
+    color: #fff;
+    font-weight: lighter;
+    box-shadow: 0 2px 6px 2px #00000030;
+}
+.account-nav {
+    position: absolute;
+    right: 1.5em;
+}
+.account-nav::before {
+    content: "";
+    width: 30px;
+    height: 30px;
+    background: var(--primary-white);
+    position: absolute;
+    left: -.5em;
+    top: 50%;
+    transform: translate(-100%, -50%);
+    border-radius: 50%;
+}

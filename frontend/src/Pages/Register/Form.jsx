@@ -11,7 +11,7 @@ export default function Form(props) {
             </div>
             <div>
                 <label className="auth-label">Password</label>
-                <input type="password" placeholder="Password..." className="auth-input" required />
+                <input type="text" placeholder="Password..." className="auth-input" required />
             </div>
             <button type="submit" className="auth-submit">Register</button>
             <Link to="/">Back Home</Link>

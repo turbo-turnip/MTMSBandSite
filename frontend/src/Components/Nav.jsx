@@ -14,7 +14,7 @@ export default function Nav(props) {
                 <Link to="/">Home</Link>
                 <Link to="/instruments">Instruments</Link>
                 <Link to="/contact">Contact</Link>
-                {loggedIn && <button>{account.name}</button>}
+                {loggedIn && <div className="account-nav"><h4>{account.name}</h4></div>}
                 {!loggedIn && 
                     <div className="auth">
                         <Link to="/login">Login</Link>
