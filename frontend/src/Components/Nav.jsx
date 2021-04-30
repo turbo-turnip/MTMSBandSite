@@ -17,12 +17,15 @@ export default function Nav(props) {
             </div>
             <div className="nav-links">
                 <Link to="/">Home</Link>
-                <Link to="/instruments">Instruments</Link>
+                <Link to="/instruments">Resources</Link>
                 <Link to="/contact">Contact</Link>
                 {loggedIn && 
                     <details className="account-nav">
                         <summary>{account.name}</summary>
-                        <button onClick={logOutHandler}>Log Out</button>
+                        <div className="account-nav-dropdown">
+                            <button>Account</button>
+                            <button onClick={logOutHandler}>Log Out</button>
+                        </div>
                     </details>}
                 {!loggedIn && 
                     <div className="auth">

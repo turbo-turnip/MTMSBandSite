@@ -12,7 +12,7 @@ app.post('/login', (req, res) => {
     readFile("database/users.json", (e, data) => {
         const users = JSON.parse(data);
         const user = users.filter(account => account.name === name);
-        if (user)
+        if (user[0])
             compare(pass, user[0].pass, (e, matches) => {
                 if (matches) {
                     const token = sign({ name, pass }, process.env.ACCESS_TOKEN_SECRET);

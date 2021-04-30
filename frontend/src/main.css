@@ -9,7 +9,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Red Hat Display'
+    font-family: 'Red Hat Display';
 }
 
 body {
@@ -299,8 +299,7 @@ main .practice-books {
     height: 300px;
 }
 
-.register,
-.login {
+.register, .login {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -311,8 +310,7 @@ main .practice-books {
     width: 100%;
 }
 
-.register h1,
-.login h1 {
+.register h1, .login h1 {
     margin-bottom: .5em;
     text-align: center;
 }
@@ -363,6 +361,7 @@ main .practice-books {
     position: absolute;
     bottom: 1em;
 }
+
 .popup {
     width: 90%;
     position: absolute;
@@ -376,18 +375,148 @@ main .practice-books {
     font-weight: lighter;
     box-shadow: 0 2px 6px 2px #00000030;
 }
+
 .account-nav {
-    position: absolute;
-    right: 1.5em;
+    margin-left: 1em;
+    position: relative;
 }
-.account-nav::before {
-    content: "";
-    width: 30px;
-    height: 30px;
-    background: var(--primary-white);
+
+.account-nav span {
+    cursor: pointer;
+}
+
+.account-nav .account-nav-dropdown {
+    width: 160%;
     position: absolute;
-    left: -.5em;
-    top: 50%;
-    transform: translate(-100%, -50%);
-    border-radius: 50%;
+    left: -5px;
+    flex-direction: column;
+    top: 0;
+    background: var(--primary-white);
+    border: 1px solid #ddd;
+    padding: .5em;
+    display: flex;
+    transform: translateY(50%);
+}
+
+.account-nav-dropdown button {
+    background: #fff;
+    border: 1px solid #ddd;
+    margin: .2em 0;
+    padding: .2em 0;
+    cursor: pointer;
+}
+
+.instruments {
+    width: 100%;
+    height: calc(100vh - (80px - 1em));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.instruments h1 {
+    font-size: 2em;
+    font-weight: lighter;
+}
+
+.instruments .options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* select all the cards */
+
+.instruments .options>div {
+    width: 50%;
+    height: 300px;
+    max-height: 500px;
+    max-width: 300px;
+    min-width: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #fff;
+    /* box-shadow: 0 0 6px 8px #00000010; */
+    border: 1px solid #e2e2e2;
+    margin: 50px 18px;
+    border-radius: .4em;
+    transition: .4s;
+}
+
+.instruments .options>div:hover {
+    box-shadow: 0 0 6px 8px #00000009;
+}
+
+.instruments .options>div a {
+    font-size: 1.6em;
+    cursor: pointer;
+    outline: none;
+    color: var(--primary-blue);
+    text-transform: capitalize;
+    margin-bottom: .7em;
+}
+
+.instruments .options>div .img {
+    width: 90%;
+    height: max-content;
+}
+
+.instruments .options>div .img img {
+    width: 100%;
+}
+
+@media (max-width:800px) {
+    .instruments .options>div .img {
+        display: none;
+    }
+    .instruments .options {
+        flex-wrap: wrap;
+    }
+    .instruments .options>div {
+        height: 80px !important;
+        margin: 1em;
+    }
+    nav .nav-links a {
+        font-size: 1.1em
+    }
+    nav .nav-links button {
+        font-size: 1em!important
+    }
+}
+
+@media (max-width:720px) {
+    nav .logo h4 {
+        display: none
+    }
+}
+
+@media (max-width:540px) {
+    nav .logo {
+        display: none
+    }
+    nav {
+        height: 70px;
+        justify-content: flex-start
+    }
+}
+
+.snackbar {
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+    font-size: 1.2em;
+    color: #fff;
+    background: #2b4783;
+    padding: .4em .8em;
+    border-radius: 6px;
+    transform: translateY(300%);
+    transition: .4s
+}
+
+.instruments {
+    padding: 0 1em;
+    text-align: center;
 }
