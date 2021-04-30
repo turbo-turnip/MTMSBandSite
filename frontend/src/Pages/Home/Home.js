@@ -4,7 +4,7 @@ import Banner from './Banner';
 import Content from './Content';
 
 export default function Home() {
-    const loggedIn = localStorage.hasOwnProperty("ACCESS_TOKEN");
+    let loggedIn = localStorage.hasOwnProperty("ACCESS_TOKEN");
     const [ accountData, setAccountData ] = useState({});
 
     useEffect(() => {
@@ -20,6 +20,7 @@ export default function Home() {
                 .then(response => {
                     if (response.status === 200)
                         setAccountData(response.data);
+                    // eslint-disable-next-line
                     else loggedIn = false;
                 });
         }

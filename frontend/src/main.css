@@ -299,7 +299,8 @@ main .practice-books {
     height: 300px;
 }
 
-.register {
+.register,
+.login {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -310,7 +311,8 @@ main .practice-books {
     width: 100%;
 }
 
-.register h1 {
+.register h1,
+.login h1 {
     margin-bottom: .5em;
     text-align: center;
 }

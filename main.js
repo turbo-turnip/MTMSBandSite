@@ -7,6 +7,22 @@ const { compare, hash } = require('bcrypt');
 
 app.use(express.json({ limit: '1MB' }));
  
+app.post('/login', (req, res) => {
+    const { name, pass } = req.body;
+    readFile("database/users.json", (e, data) => {
+        const users = JSON.parse(data);
+        const user = users.filter(account => account.name === name);
+        if (user)
+            compare(pass, user[0].pass, (e, matches) => {
+                if (matches) {
+                    const token = sign({ name, pass }, process.env.ACCESS_TOKEN_SECRET);
+                    token && res.json({ status: 200, token });
+                } else res.json({ status: 403, message: "Password Incorrect" });
+            });
+        else res.json({ status: 403 });
+    });
+});
+
 app.post('/register', (req, res) => {
     const { name, pass } = req.body;
     readFile("database/users.json", (e, data) => {
@@ -38,8 +54,6 @@ const authorizeToken = (req, res, next) => {
     next();
 }
 
-app.get('/getUserData', authorizeToken, (req, res) => {
-    req.data && res.json({ status: 200, data: req.data });
-});
+app.get('/getUserData', authorizeToken, (req, res) => req.data && res.json({ status: 200, data: req.data }));
 
 app.listen(5000, () => console.log('Server running...'));

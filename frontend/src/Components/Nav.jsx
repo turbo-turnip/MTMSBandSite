@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 export default function Nav(props) {
     const { loggedIn, account } = props;
 
+    const logOutHandler = () => {
+        localStorage.hasOwnProperty("ACCESS_TOKEN") && localStorage.removeItem("ACCESS_TOKEN");
+        window.location.href = "/";
+    }
+
     return (
         <nav className="nav">
             <div className="logo">
@@ -14,7 +19,11 @@ export default function Nav(props) {
                 <Link to="/">Home</Link>
                 <Link to="/instruments">Instruments</Link>
                 <Link to="/contact">Contact</Link>
-                {loggedIn && <div className="account-nav"><h4>{account.name}</h4></div>}
+                {loggedIn && 
+                    <details className="account-nav">
+                        <summary>{account.name}</summary>
+                        <button onClick={logOutHandler}>Log Out</button>
+                    </details>}
                 {!loggedIn && 
                     <div className="auth">
                         <Link to="/login">Login</Link>
