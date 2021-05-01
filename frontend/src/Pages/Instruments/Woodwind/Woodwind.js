@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Nav from '../../../Components/Nav';
 import Instrument from '../Instrument';
 
-export default function Brass() {
+export default function Woodwind() {
     let loggedIn = localStorage.hasOwnProperty("ACCESS_TOKEN");
     const [ accountData, setAccountData ] = useState({});
     const [ currInstrument, setCurrInstrument ] = useState(0);

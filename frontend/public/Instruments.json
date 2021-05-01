@@ -1,0 +1,92 @@
+[
+    {
+        "name": "Trumpet",
+        "type": "Brass",
+        "charts": [
+            {
+                "name": "Trumpet Chart.pdf",
+                "location": "fingercharts/trumpetchart.pdf"
+            }
+        ],
+        "private_teachers": [
+            {
+                "name": "Erick E. Escobar",
+                "instruments": [
+                    "Trumpet"
+                ],
+                "phone_number": "(970) 818-1906",
+                "email": "erick.e.escobar@hotmail.com"
+            },
+            {
+                "name": "Ben Medler",
+                "instruments": [
+                    "Trumpet",
+                    "Trombone",
+                    "Bass"
+                ],
+                "email": "ben@medlerstudios.com"
+            }
+        ]
+    },
+    {
+        "name": "Trombone",
+        "type": "Brass",
+        "charts": [
+            {
+                "name": "Trombone Chart.pdf",
+                "location": "fingercharts/trombonechart.pdf"
+            }
+        ],
+        "private_teachers": [
+            {
+                "name": "Ben Medler",
+                "instruments": [
+                    "Trumpet",
+                    "Trombone",
+                    "Bass"
+                ],
+                "email": "ben@medlerstudios.com"
+            }
+        ]
+    },
+    {
+        "name": "Tuba",
+        "type": "Brass",
+        "charts": [
+            {
+                "name": "Tuba Chart.pdf",
+                "location": "fingercharts/tubachart.pdf"
+            }
+        ],
+        "private_teachers": [
+            {
+                "name": "Jacob Brown",
+                "instruments": [
+                    "Tuba",
+                    "Euphonium"
+                ],
+                "email": "brownjacob1824@gmail.com"
+            }
+        ]
+    },
+    {
+        "name": "Euphonium",
+        "type": "Brass",
+        "charts": [
+            {
+                "name": "TCEuph Chart.pdf",
+                "location": "fingercharts/tceuphchart.pdf"
+            }
+        ],
+        "private_teachers": [
+            {
+                "name": "Jacob Brown",
+                "instruments": [
+                    "Tuba",
+                    "Euphonium"
+                ],
+                "email": "brownjacob1824@gmail.com"
+            }
+        ]
+    }
+]
