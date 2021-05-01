@@ -88,5 +88,279 @@
                 "email": "brownjacob1824@gmail.com"
             }
         ]
+    },
+    {
+        "name": "Flute",
+        "type": "Woodwind",
+        "charts": [
+            {
+                "name": "Flute Chart.pdf",
+                "location": "fingercharts/flutechart.pdf"
+            },
+            {
+                "name": "Flute Trill.pdf",
+                "location": "fingercharts/flutetrill.pdf"
+            }
+        ],
+        "private_teachers": [
+            {
+                "name": "Michelle Medler",
+                "instruments": [
+                    "Saxophone",
+                    "Flute",
+                    "Clarinet"
+                ],
+                "email": "shell@medlerstudios.com"
+            },
+            {
+                "name": "Willie Matheis",
+                "instruments": [
+                    "Saxophone",
+                    "Flute",
+                    "Clarinet",
+                    "Composition"
+                ],
+                "website": "https://williematheis.com/about-willie/"
+            },
+            {
+                "name": "Emily Higgins",
+                "instruments": [
+                    "Flute",
+                    "Piano"
+                ],
+                "phone_number": "(503) 850-8311",
+                "website": "https://pdxflute.com",
+                "email": "emily.k.higgins@gmail.com"
+            },
+            {
+                "name": "Melissa Carroll",
+                "instruments": [
+                    "Saxophone",
+                    "Flute",
+                    "Clarinet",
+                    "Oboe"
+                ],
+                "phone_number": "(971) 208-8389",
+                "email": "superetoile@yahoo.com",
+                "website": "https://melissacarrollmusic.com"
+            }
+        ]
+    },
+    {
+        "name": "Clarinet",
+        "type": "Woodwind",
+        "charts": [
+            {
+                "name": "Clarinet Chart.pdf",
+                "location": "fingercharts/clarinetchart.pdf"
+            },
+            {
+                "name": "Clarinet Trill.pdf",
+                "location": "fingercharts/clarinettrill.pdf"
+            }
+        ],
+        "private_teachers": [
+            {
+                "name": "Mary Ellen Grace",
+                "instruments": [
+                    "Saxophone",
+                    "Clarinet"
+                ],
+                "phone_number": "(503) 888-5796",
+                "email": "meg@meggrace.com",
+                "website": "https://meggrace.com/"
+            },
+            {
+                "name": "Michelle Medler",
+                "instruments": [
+                    "Saxophone",
+                    "Flute",
+                    "Clarinet"
+                ],
+                "email": "shell@medlerstudios.com"
+            },
+            {
+                "name": "Willie Matheis",
+                "instruments": [
+                    "Saxophone",
+                    "Flute",
+                    "Clarinet",
+                    "Composition"
+                ],
+                "website": "https://williematheis.com/about-willie/"
+            },
+            {
+                "name": "Melissa Carroll",
+                "instruments": [
+                    "Saxophone",
+                    "Flute",
+                    "Clarinet",
+                    "Oboe"
+                ],
+                "phone_number": "(971) 208-8389",
+                "email": "superetoile@yahoo.com",
+                "website": "https://melissacarrollmusic.com"
+            }
+        ],
+        "reeds": [
+            {
+                "for": "Clarinet",
+                "strength": 2,
+                "link": "https://www.amazon.com/Rico-DAddario-RCA1025-Clarinet-Strength/dp/B0002F59X6/ref=sr_1_5?s=musical-instruments&ie=UTF8&qid=1537487317&sr=1-5&keywords=clarinet%2Breeds&th=1"
+            },
+            {
+                "for": "Clarinet",
+                "strength": 2.5,
+                "link": "https://www.amazon.com/Rico-DAddario-RCA1025-Clarinet-Strength/dp/B0002F59W2/ref=sr_1_3?s=musical-instruments&ie=UTF8&qid=1537487774&sr=1-3&keywords=clarinet+reeds+2.5"
+            },
+            {
+                "for": "Clarinet",
+                "strength": 3,
+                "link": "https://www.amazon.com/Vandoren-CR103-Clarinet-Traditional-Strength/dp/B0002E1P08/ref=sr_1_3?s=musical-instruments&ie=UTF8&qid=1537488080&sr=1-3&keywords=clarinet+reeds+3"
+            }
+        ]
+    },
+    {
+        "name": "Saxophone",
+        "type": "Woodwind",
+        "charts": [
+            {
+                "name": "Alto Sax Chart.pdf",
+                "location": "fingercharts/altosaxchart.pdf"
+            },
+            {
+                "name": "Baritone Sax Chart.pdf",
+                "location": "fingercharts/barisaxchart.pdf"
+            },
+            {
+                "name": "Tenor Sax Chart.pdf",
+                "location": "fingercharts/tenorsaxchart.pdf"
+            },
+            {
+                "name": "Sax Trill.pdf",
+                "location": "fingercharts/saxtrill.pdf"
+            }
+        ],
+        "private_teachers": [
+            {
+                "name": "Mary Ellen Grace",
+                "instruments": [
+                    "Saxophone",
+                    "Clarinet"
+                ],
+                "phone_number": "(503) 888-5796",
+                "email": "meg@meggrace.com",
+                "website": "https://meggrace.com/"
+            },
+            {
+                "name": "Michelle Medler",
+                "instruments": [
+                    "Saxophone",
+                    "Flute",
+                    "Clarinet"
+                ],
+                "email": "shell@medlerstudios.com"
+            },
+            {
+                "name": "Willie Matheis",
+                "instruments": [
+                    "Saxophone",
+                    "Flute",
+                    "Clarinet",
+                    "Composition"
+                ],
+                "website": "https://williematheis.com/about-willie/"
+            },
+            {
+                "name": "Melissa Carroll",
+                "instruments": [
+                    "Saxophone",
+                    "Flute",
+                    "Clarinet",
+                    "Oboe"
+                ],
+                "phone_number": "(971) 208-8389",
+                "email": "superetoile@yahoo.com",
+                "website": "https://melissacarrollmusic.com"
+            }
+        ],
+        "reeds": [
+            {
+                "for": "Alto Sax",
+                "strength": 2,
+                "link": "https://www.amazon.com/Rico-DAddario-RJA1025-Strength-10-pack/dp/B000VVG836/ref=sr_1_3?s=musical-instruments&ie=UTF8&qid=1537487559&sr=1-3&keywords=alto%2Bsax%2Breeds&th=1"
+            },
+            {
+                "for": "Alto Sax",
+                "strength": 2.5,
+                "link": "https://www.amazon.com/Rico-DAddario-RJA1025-Strength-10-pack/dp/B0002F59GI/ref=sr_1_3?s=musical-instruments&ie=UTF8&qid=1537487921&sr=1-3&keywords=alto+sax+reeds+2.5"
+            },
+            {
+                "for": "Tenor Sax",
+                "strength": 2.5,
+                "link": "https://www.amazon.com/Rico-DAddario-RKA1025-Strength-10-pack/dp/B0002E1VNY/ref=sr_1_4?s=musical-instruments&ie=UTF8&qid=1537487594&sr=1-4&keywords=tenor+sax+reeds"
+            },
+            {
+                "for": "Alto Sax",
+                "strength": 3,
+                "link": "https://www.amazon.com/Vandoren-SR213-Traditional-Reeds-Strength/dp/B00T8L27ZI/ref=sr_1_3?s=musical-instruments&ie=UTF8&qid=1537488245&sr=1-3&keywords=alto+sax+reeds+3"
+            },
+            {
+                "for": "Tenor Sax",
+                "strength": 3,
+                "link": "https://www.amazon.com/Vandoren-SR223-Tenor-Traditional-Strength/dp/B0002D0A82/ref=sr_1_3?s=musical-instruments&ie=UTF8&qid=1537488349&sr=1-3&keywords=tenor+sax+reeds+3"
+            }
+        ]
+    },
+    {
+        "name": "Bassoon",
+        "type": "Woodwind",
+        "charts": [
+            {
+                "name": "Bassoon Chart.pdf",
+                "location": "fingercharts/bassoonchart.pdf"
+            }
+        ],
+        "private_teachers": [
+            {
+                "name": "Dani Tanzella",
+                "instruments": [
+                    "Bassoon"
+                ],
+                "website": "https://danitanzellamusic.com/music/"
+            }
+        ]
+    },
+    {
+        "name": "Oboe",
+        "type": "Woodwind",
+        "charts": [
+            {
+                "name": "Oboe Chart.pdf",
+                "location": "fingercharts/oboechart.pdf"
+            }
+        ],
+        "private_teachers": [
+            {
+                "name": "Melissa Carroll",
+                "instruments": [
+                    "Saxophone",
+                    "Flute",
+                    "Clarinet",
+                    "Oboe"
+                ],
+                "phone_number": "(971) 208-8389",
+                "email": "superetoile@yahoo.com",
+                "website": "https://melissacarrollmusic.com"
+            },
+            {
+                "name": "Kelly Gronli",
+                "instruments": [
+                    "Oboe"
+                ],
+                "phone_number": "(503) 515-6064",
+                "email": "kellyoboe@hotmail.com"
+            }
+        ]
     }
 ]
