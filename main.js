@@ -9,11 +9,11 @@ app.use(express.json({ limit: '1MB' }));
  
 app.post('/login', (req, res) => {
     const { name, pass } = req.body;
-    readFile("database/users.json", (e, data) => {
+    readFile("database/users.json", (_, data) => {
         const users = JSON.parse(data);
         const user = users.filter(account => account.name === name);
         if (user[0])
-            compare(pass, user[0].pass, (e, matches) => {
+            compare(pass, user[0].pass, (_, matches) => {
                 if (matches) {
                     const token = sign({ name, pass }, process.env.ACCESS_TOKEN_SECRET);
                     token && res.json({ status: 200, token });
@@ -25,14 +25,14 @@ app.post('/login', (req, res) => {
 
 app.post('/register', (req, res) => {
     const { name, pass } = req.body;
-    readFile("database/users.json", (e, data) => {
+    readFile("database/users.json", (_, data) => {
         let user = {};
         const users = JSON.parse(data);
         const matchingUsers = users.filter(user => user.name === name);
         if (matchingUsers.length === 0) {
-            hash(pass, 10, (e, hashed) => {
+            hash(pass, 10, (_, hashed) => {
                 users.unshift({ name, pass: hashed });
-                writeFile('database/users.json', JSON.stringify(users, null, 2), e => {});
+                writeFile('database/users.json', JSON.stringify(users, null, 2), _ => {});
                 const token = sign({ name, pass }, process.env.ACCESS_TOKEN_SECRET);
                 token && res.json({ status: 200, token });
             });
@@ -47,7 +47,7 @@ const authorizeToken = (req, res, next) => {
             const verifiedToken = verify(token, process.env.ACCESS_TOKEN_SECRET);
             req.data = verifiedToken;
             next();
-        } catch (e) { 
+        } catch (_) { 
             res.json({ status: 400 }); 
         }
     }
@@ -55,5 +55,11 @@ const authorizeToken = (req, res, next) => {
 }
 
 app.get('/getUserData', authorizeToken, (req, res) => req.data && res.json({ status: 200, data: req.data }));
+
+app.get('/getQuestions', (_, res) => {
+    readFile("database/questions.json", (_, data) => {
+        return data && res.json({ status: 200, questions: JSON.parse(data) });
+    });
+});
 
 app.listen(5000, () => console.log('Server running...'));

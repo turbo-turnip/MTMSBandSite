@@ -4,7 +4,7 @@ import Banner from './Banner';
 import Content from './Content';
 
 export default function Home() {
-    let loggedIn = localStorage.hasOwnProperty("ACCESS_TOKEN");
+    let [ loggedIn,, ] = useState(localStorage.hasOwnProperty("ACCESS_TOKEN"));
     const [ accountData, setAccountData ] = useState({});
 
     useEffect(() => {

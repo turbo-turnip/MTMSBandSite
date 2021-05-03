@@ -9,6 +9,7 @@ import Instruments from './Pages/Instruments/Instruments';
 import Brass from './Pages/Instruments/Brass/Brass';
 import Woodwind from './Pages/Instruments/Woodwind/Woodwind';
 import Percussion from './Pages/Instruments/Percussion/Percussion';
+import Questions from './Pages/Questions/Questions';
 
 export default function App(props) {
     const { entry } = props;
@@ -23,6 +24,7 @@ export default function App(props) {
                     <Route exact path="/brass" component={Brass} />
                     <Route exact path="/woodwind" component={Woodwind} />
                     <Route exact path="/percussion-bass" component={Percussion} />
+                    <Route exact path="/questions" component={Questions} />
                 </Switch>
             </BrowserRouter>
         </React.Fragment>

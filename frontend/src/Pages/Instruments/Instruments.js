@@ -3,7 +3,7 @@ import Nav from '../../Components/Nav';
 import { Link } from 'react-router-dom';
 
 export default function Instruments() {
-    let loggedIn = localStorage.hasOwnProperty("ACCESS_TOKEN");
+    let [ loggedIn,, ] = useState(localStorage.hasOwnProperty("ACCESS_TOKEN"));
     const [ accountData, setAccountData ] = useState({});
 
     useEffect(() => {

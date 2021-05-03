@@ -3,7 +3,7 @@ import Nav from '../../../Components/Nav';
 import Instrument from '../Instrument';
 
 export default function Brass() {
-    let loggedIn = localStorage.hasOwnProperty("ACCESS_TOKEN");
+    let [ loggedIn,, ] = useState(localStorage.hasOwnProperty("ACCESS_TOKEN"));
     const [ accountData, setAccountData ] = useState({});
     const [ currInstrument, setCurrInstrument ] = useState(0);
 
