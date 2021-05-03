@@ -54,11 +54,48 @@ const authorizeToken = (req, res, next) => {
     next();
 }
 
-app.get('/getUserData', authorizeToken, (req, res) => req.data && res.json({ status: 200, data: req.data }));
+app.get('/getUserData', authorizeToken, (req, res) => 
+    req.data && res.json({ status: 200, data: req.data }));
 
 app.get('/getQuestions', (_, res) => {
     readFile("database/questions.json", (_, data) => {
         return data && res.json({ status: 200, questions: JSON.parse(data) });
+    });
+});
+
+app.get('/badwords', (_, res) => {
+    readFile("./utils/badwords.json", (_, data) => 
+        res.json({ status: 200, badwords: JSON.parse(data) }));
+});
+
+app.post('/createQuestion', (req, res) => {
+    const { from, value } = req.body; 
+    readFile("database/questions.json", (_, data) => {
+        const question = {
+            from,
+            question: value,
+            replies: []
+        };
+        const objects = JSON.parse(data);
+        objects.unshift(question);
+        writeFile("database/questions.json", JSON.stringify(objects, null, 2), _ => {});
+        res.json({ status: 200, data: objects });
+    });
+});
+
+app.post('/reply', (req, res) => {
+    const { from, reply, question } = req.body;
+    readFile("database/questions.json", (_, data) => {
+        const objects = JSON.parse(data);
+        const { replies } = objects[objects.findIndex(currQuestion => 
+            currQuestion.from === question.from && 
+            currQuestion.question === question.question)];
+        replies.unshift({
+            from,
+            reply
+        });
+        writeFile("database/questions.json", JSON.stringify(objects, null, 2), _ => {});
+        res.json({ status: 200, replies });
     });
 });
 

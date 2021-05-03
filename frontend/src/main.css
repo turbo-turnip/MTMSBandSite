@@ -644,7 +644,7 @@ main .practice-books {
     flex-direction: column;
 }
 
-.questions h1 {
+.questions>h1 {
     margin-top: 1.2em;
 }
 
@@ -663,6 +663,7 @@ main .practice-books {
     flex-direction: column;
     overflow: scroll;
 }
+
 .questions-section .question {
     width: 100%;
     min-height: max-content;
@@ -675,30 +676,35 @@ main .practice-books {
     margin-bottom: 1em;
     padding-bottom: .8em;
 }
+
 .question::before {
     content: attr(data-user);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 .question .question-reply {
     font-size: 1em;
     margin-top: .5em;
-    width: 80px;
+    width: max-content;
     border: none;
     background: #fff;
     box-shadow: 0 1px 4px 1px #00000020;
-    padding: .2em 0;
+    padding: .2em 1em;
     border-radius: 4px;
     cursor: pointer;
     position: relative;
+    margin-bottom: .5em;
 }
+
 .question .question-reply::after {
     content: attr(data-replies);
     position: absolute;
     right: -10px;
     transform: translateX(100%);
 }
+
 .new-question {
     margin-top: .5em;
     font-size: 1.2em;
@@ -707,5 +713,97 @@ main .practice-books {
     box-shadow: 0 1px 4px 1px #00000020;
     border: none;
     border-radius: 6px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.new-question-popup {
+    width: 90%;
+    height: 90%;
+    max-width: 400px;
+    max-height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    box-shadow: 0 0 0 8000px #00000080;
+    transition: .4s;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 6px;
+    padding: .8em 1em;
+}
+
+.new-question-popup h1 {
+    margin-bottom: .3em;
+}
+
+.new-question-popup textarea {
+    width: 100%;
+    min-height: 100px;
+    font-size: 1.2em;
+    padding: .3em .5em;
+    border: 1px solid #eee;
+    resize: none;
+    border-radius: 6px;
+    max-height: 80%;
+}
+
+.new-question-popup .question-submit {
+    font-size: 1.2em;
+    padding: .3em .8em;
+    width: 100%;
+    margin-top: .5em;
+    background: #fff;
+    box-shadow: 0 1px 4px 1px #00000020;
+    border: none;
+    border-radius: 4px;
+}
+
+.new-question-popup p {
+    margin-top: .5em;
+    color: #f00;
+}
+
+.new-question-popup textarea:disabled {
+    color: #f00;
+}
+
+.question-live-reply {
+    width: 100%;
+    border: 1px solid #eee;
+    padding: .3em .8em;
+    margin: .3em 0;
+    border-radius: 4px;
+}
+
+.question-live-reply::before {
+    content: attr(data-user);
+}
+.reply-create-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: .5em 0;
+}
+.reply-create-box textarea {
+    font-size: 1em;
+    padding: .2em .5em;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    resize: none;
+    margin-bottom: .5em;
+}
+.reply-create-box > button {
+    font-size: 1em;
+    padding: .4em 1em;
+    border: none;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px 1px #00000020;
+    align-self: center;
     cursor: pointer;
 }
