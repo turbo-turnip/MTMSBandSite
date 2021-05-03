@@ -4,7 +4,18 @@ export default function Instrument(props) {
     return (
         <section className="instrument-content">
             {
-                (props.data.type === "Brass" || props.data.type === "Woodwind") &&
+                props.data.diagram &&
+                    <React.Fragment>
+                        <h1>{props.data.diagram.name} Diagram</h1>
+                        <div class="diagram-container">
+                            <div class="diagram">
+                                <img alt="" className="img" src={props.data.diagram.image} />
+                            </div>
+                        </div>
+                    </React.Fragment>
+            }
+            {
+                (props.data.type !== "Percussion") &&
                     <React.Fragment>
                         <h1>Fingering Charts</h1>
                         <div className="charts">
@@ -19,15 +30,20 @@ export default function Instrument(props) {
                         </div>
                     </React.Fragment>
             }
-            <h1>Private Teachers</h1>
-            {
-                props.data['private_teachers'].map(teacher => 
-                    <div className="teacher" key={teacher.name}>
-                        {teacher.name && <p>{teacher.name} ({teacher.instruments.join(', ')})</p>}
-                        {teacher['phone_number'] && <p>{teacher['phone_number']}</p>}
-                        {teacher.email && <a href={`mailto:${teacher.email}`}>{teacher.email}</a>}
-                        {teacher.website && <a href={teacher.website} target="_blank" rel="noreferrer">{teacher.website}</a>}
-                    </div>)
+            {   
+                props.data.type !== "Bass" && 
+                    <React.Fragment>
+                        <h1>Private Teachers</h1>
+                        {
+                            props.data['private_teachers'].map(teacher =>
+                                <div className="teacher" key={teacher.name}>
+                                    {teacher.name && <p>{teacher.name} ({teacher.instruments.join(', ')})</p>}
+                                    {teacher['phone_number'] && <p>{teacher['phone_number']}</p>}
+                                    {teacher.email && <a href={`mailto:${teacher.email}`}>{teacher.email}</a>}
+                                    {teacher.website && <a href={teacher.website} target="_blank" rel="noreferrer">{teacher.website}</a>}
+                                </div>)
+                        }
+                    </React.Fragment>
             }
             {
                 props.data.reeds && 

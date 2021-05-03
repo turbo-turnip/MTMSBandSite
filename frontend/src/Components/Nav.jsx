@@ -18,7 +18,7 @@ export default function Nav(props) {
             <div className="nav-links">
                 <Link to="/">Home</Link>
                 <Link to="/instruments">Resources</Link>
-                <Link to="/contact">Questions</Link>
+                <Link to="/questions">Questions</Link>
                 {loggedIn && 
                     <details className="account-nav">
                         <summary>{account.name}</summary>

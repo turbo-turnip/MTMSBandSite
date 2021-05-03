@@ -362,5 +362,95 @@
                 "email": "kellyoboe@hotmail.com"
             }
         ]
+    },
+    {
+        "name": "Bass",
+        "type": "Bass",
+        "charts": [
+            {
+                "name": "Bass Chart.pdf",
+                "location": "fingercharts/basschart.pdf"
+            }
+        ],
+        "diagram": {
+            "name": "Bass",
+            "image": "https://lh5.googleusercontent.com/-cMnWrdTy_A0/VRWQz58LQZI/AAAAAAAACXk/lH_Bg22qLfo/w600-h300-no/diagram-bass-guitar.jpg"
+        }
+    },
+    {
+        "name": "Bells",
+        "type": "Bells",
+        "charts": [
+            {
+                "name": "Mallets Chart.pdf",
+                "location": "fingercharts/malletschart.pdf"
+            }
+        ],
+        "private_teachers": [
+            {
+                "name": "Gordon Rencher",
+                "instruments": [
+                    "All Percussion Instruments"
+                ],
+                "phone_number": "(503) 805-1708",
+                "email": "grperc@comcast.net",
+                "website": "https://gordonrencher.com/"
+            },
+            {
+                "name": "Steven Schob",
+                "instruments": [
+                    "All Percussion Instruments"
+                ],
+                "phone_number": "(920) 602-1335",
+                "email": "info@stevenschob.com",
+                "website": "https://stevenschob.com/"
+            }
+        ]
+    },
+    {
+        "name": "Drums",
+        "type": "Percussion",
+        "diagram": {
+            "name": "Drum Set",
+            "image": "https://musicalinstrumentguide.com/wp-content/uploads/2019/09/drum-set-diagram_700x357.jpg"
+        },
+        "private_teachers": [
+            {
+                "name": "Gordon Rencher",
+                "instruments": [
+                    "All Percussion Instruments"
+                ],
+                "phone_number": "(503) 805-1708",
+                "email": "grperc@comcast.net",
+                "website": "https://gordonrencher.com/"
+            },
+            {
+                "name": "Steven Schob",
+                "instruments": [
+                    "All Percussion Instruments"
+                ],
+                "phone_number": "(920) 602-1335",
+                "email": "info@stevenschob.com",
+                "website": "https://stevenschob.com/"
+            },
+            {
+                "name": "Eric Ching",
+                "instruments": [
+                    "Percussion",
+                    "Drum Set"
+                ],
+                "phone_number": "(650) 862-1889",
+                "email": "ericchingdrums@gmail.com",
+                "website": "https://facebook.com/ericchingdrums/"
+            },
+            {
+                "name": "Carlton Jackson",
+                "instruments": [
+                    "Drum Set"
+                ],
+                "email": "cjackson@teleport.com",
+                "website": "https://carltonjackson.com/"
+            }
+        ]
     }
 ]
