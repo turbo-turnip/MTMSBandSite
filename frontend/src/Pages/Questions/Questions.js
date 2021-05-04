@@ -56,7 +56,8 @@ export default function Questions() {
                 .then(response => {
                     if (response.status === 200) {
                         setNewQuestionPopup(false);
-                        setQuestions(response.data);
+                        // setQuestions(response.data);
+                        console.log(response.data);
                     }
                 });
         }
@@ -74,10 +75,10 @@ export default function Questions() {
                             <h4>No questions yet!</h4>
                             <p>Be the first to ask a question!</p>
                         </React.Fragment> :
-                    questions.map(question => <Question loggedIn={loggedIn} username={accountData && accountData.name} question={question} />)
+                    questions.map(question => <Question key={question.question + " " + question.from} loggedIn={loggedIn} username={accountData && accountData.name} question={question} />)
                 }
             </div>
-            {loggedIn ? <button className="new-question" onClick={addQuestionHandler}>Ask a question</button> : <h4></h4>}
+            {loggedIn ? <button className="new-question" onClick={addQuestionHandler}>Ask a question</button> : <h4>Register to ask a question</h4>}
             {loggedIn && <QuestionPopup visible={newQuestionPopup} newQuestionHandler={newQuestionHandler} />}
         </div>
     );

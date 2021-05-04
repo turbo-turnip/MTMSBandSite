@@ -32,6 +32,7 @@ export default function Question(props) {
                 .then(response => {
                     response.status === 200 && setReplies(response.replies);
                     setNewReply(false);
+                    window.location.reload();
                 });
         }
     }
