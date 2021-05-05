@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function Content() {
     return (
         <main>
-            <h1>Metronome</h1>
+            <h1 id="metronome">Metronome</h1>
             <Metronome />
             
             <h1>Tips For Practicing At Home</h1>

@@ -952,3 +952,99 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
     background: #50555C;
 }
+
+.practice-leaderboard {
+    width: 100%;
+    height: calc(100vh - (80px - 1em));
+    position: relative;
+    top: calc(80px - 1em);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.practice-leaderboard h1 {
+    margin-top: 1em;
+    text-align: center;
+}
+
+.practice-leaderboard .times {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin-top: .8em;
+}
+
+.practice-leaderboard .times .time {
+    width: 90%;
+    margin: .5em 0;
+    max-width: 600px;
+    border: 1px solid #ddd;
+    padding: .5em .8em;
+    border-radius: 6px;
+}
+
+.practice-leaderboard .new-time {
+    margin-top: 1.5em;
+    font-size: 1em;
+    padding: .3em .8em;
+    background: #fff;
+    box-shadow: 0 2px 4px 2px #00000020;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.practice-time-popup {
+    width: 90%;
+    height: 90%;
+    max-width: 400px;
+    max-height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    box-shadow: 0 0 0 8000px #00000080;
+    transition: .4s;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 6px;
+    padding: .8em 1em;
+}
+
+.practice-time-popup h1 {
+    font-size: 1.8em;
+    margin-bottom: .3em;
+}
+
+.practice-time-popup input {
+    width: 100%;
+    font-size: 1.2em;
+    padding: .3em .5em;
+    border: 1px solid #eee;
+    resize: none;
+    border-radius: 6px;
+    margin-bottom: .5em;
+}
+
+.practice-time-popup p {
+    color: #f00;
+}
+
+.practice-time-popup .time-submit {
+    font-size: 1.2em;
+    padding: .3em .8em;
+    width: 100%;
+    margin-top: .5em;
+    background: #fff;
+    box-shadow: 0 1px 4px 1px #00000020;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

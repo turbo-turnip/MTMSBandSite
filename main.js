@@ -116,4 +116,21 @@ app.post('/reply', (req, res) => {
     });
 });
 
+app.get('/times', (_, res) => {
+    readFile("database/times.json", (_, data) => {
+        return data && res.json({ status: 200, times: JSON.parse(data) });
+    })
+});
+
+app.post('/createTime', (req, res) => {
+    const { name, instrument, time } = req.body;
+    readFile("database/times.json", (_, data) => {
+        const objects = JSON.parse(data);
+        const postedTime = { time, instrument, name };
+        objects.unshift(postedTime);
+        writeFile("database/times.json", JSON.stringify(objects, null, 2), _ => {});
+        res.json({ status: 200, times: objects });
+    });
+});
+
 app.listen(5000, () => console.log('Server running...'));
