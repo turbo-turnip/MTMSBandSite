@@ -1,5 +1,6 @@
 import React from 'react';
 import Metronome from '../../Components/Metronome';
+import { Link } from 'react-router-dom';
 
 export default function Content() {
     return (
@@ -28,6 +29,9 @@ export default function Content() {
                 </li>
                 <li>
                     <span>Live Music -</span> Nothing makes a more lasting impression than watching live music! Examples include:  Oregon Symphony, Jazz Bands, Farmers Markets, Rock Bands, Buskers, etc.
+                </li>
+                <li>
+                    <span>Practiced for a long time?</span> If you've practiced for a long time that you are proud of, consider taking a moment to enter your practice time, and instrument in the <span><Link to="/practice-leaderboard">practice leaderboard!</Link></span>
                 </li>
             </ol>
             <h1>Practice Books</h1>

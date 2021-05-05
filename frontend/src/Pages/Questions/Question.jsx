@@ -32,7 +32,6 @@ export default function Question(props) {
                 .then(response => {
                     response.status === 200 && setReplies(response.replies);
                     setNewReply(false);
-                    window.location.reload();
                 });
         }
     }
@@ -53,7 +52,7 @@ export default function Question(props) {
                                 <button onClick={e => replyHandler(e)} className="reply-submit">Reply</button>
                             </div>}
                 {loggedIn && replies.map(reply => 
-                    <div className="question-live-reply" data-user={reply.from}>
+                    <div className="question-live-reply" data-user={reply.from} key={reply.form + " " + reply.reply}>
                         <h4>{reply.reply}</h4>
                     </div>)}
                 {(loggedIn && replies.length === 0 && !newReply) && <h4 style={{ marginTop: ".5em", textAlign: "center" }}>No replies!</h4>}

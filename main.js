@@ -4,8 +4,23 @@ const { writeFile, readFile } = require('fs');
 const { verify, sign } = require('jsonwebtoken');
 const {} = require('dotenv').config();
 const { compare, hash } = require('bcrypt');
+const { createTransport } = require('nodemailer');
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 app.use(express.json({ limit: '1MB' }));
+
+const transporter = createTransport({
+    service: "Gmail",
+    auth: {
+        user: process.env.EMAIL_NAME,
+        pass: process.env.EMAIL_PASS
+    }
+})
  
 app.post('/login', (req, res) => {
     const { name, pass } = req.body;
@@ -64,8 +79,10 @@ app.get('/getQuestions', (_, res) => {
 });
 
 app.get('/badwords', (_, res) => {
-    readFile("./utils/badwords.json", (_, data) => 
-        res.json({ status: 200, badwords: JSON.parse(data) }));
+    readFile("./utils/badwords.json", (_, data) => {
+        const objects = JSON.parse(data);
+        res.json({ status: 200, badwords: objects });
+    });
 });
 
 app.post('/createQuestion', (req, res) => {

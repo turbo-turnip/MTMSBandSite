@@ -36,7 +36,7 @@ export default function Questions() {
                 setQuestionsLoading(false);
                 response.status === 200 && setQuestions(response.questions);
             });
-    }, [ questions ]);
+    }, []);
 
     const addQuestionHandler = () => {
         setNewQuestionPopup(true);
@@ -56,8 +56,7 @@ export default function Questions() {
                 .then(response => {
                     if (response.status === 200) {
                         setNewQuestionPopup(false);
-                        // setQuestions(response.data);
-                        console.log(response.data);
+                        setQuestions(response.data);
                     }
                 });
         }

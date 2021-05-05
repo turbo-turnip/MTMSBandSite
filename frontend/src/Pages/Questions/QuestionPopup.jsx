@@ -8,7 +8,7 @@ export default function QuestionPopup(props) {
         fetch("/badwords")
             .then(response => response.json())
             .then(response => setBadWords(response.badwords));
-    }, [ badWords ]);
+    }, []);
 
     const checkAppropriate = e => {
         e.target.style.height = e.target.scrollHeight + "px";

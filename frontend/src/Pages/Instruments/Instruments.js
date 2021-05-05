@@ -23,7 +23,7 @@ export default function Instruments() {
                     else loggedIn = false;
                 });
         }
-    });
+    }, []);
 
     return (
         <div className="instruments">
