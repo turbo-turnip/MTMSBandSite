@@ -4,7 +4,9 @@ const { writeFile, readFile } = require('fs');
 const { verify, sign } = require('jsonwebtoken');
 const {} = require('dotenv').config();
 const { compare, hash } = require('bcrypt');
+const cors = require('cors');
 
+app.use(cors());
 app.use(express.json({ limit: '1MB' }));
  
 app.post('/login', (req, res) => {
