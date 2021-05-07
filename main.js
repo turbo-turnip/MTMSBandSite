@@ -154,4 +154,4 @@ app.post('/deleteAccount', (req, res) => {
     });
 });
 
-app.listen(5000, () => console.log('Server running...'));
+app.listen(process.env.PORT || 8080, () => console.log('Server running...'));
