@@ -103,7 +103,7 @@ app.post('/reply', (req, res) => {
 
 app.get('/times', (_, res) => {
     readFile("database/times.json", (_, data) => {
-        return data && res.json({ status: 200, times: JSON.parse(data) });
+        return !_ ? res.json({ status: 200, times: JSON.parse(data) }) : res.json({ status: 200, error: _ });
     })
 });
 
