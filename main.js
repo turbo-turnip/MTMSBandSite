@@ -4,23 +4,8 @@ const { writeFile, readFile } = require('fs');
 const { verify, sign } = require('jsonwebtoken');
 const {} = require('dotenv').config();
 const { compare, hash } = require('bcrypt');
-const { createTransport } = require('nodemailer');
-
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
 
 app.use(express.json({ limit: '1MB' }));
-
-const transporter = createTransport({
-    service: "Gmail",
-    auth: {
-        user: process.env.EMAIL_NAME,
-        pass: process.env.EMAIL_PASS
-    }
-})
  
 app.post('/login', (req, res) => {
     const { name, pass } = req.body;
@@ -130,6 +115,42 @@ app.post('/createTime', (req, res) => {
         objects.unshift(postedTime);
         writeFile("database/times.json", JSON.stringify(objects, null, 2), _ => {});
         res.json({ status: 200, times: objects });
+    });
+});
+
+app.post('/authorizeAdmin', (req, res) => {
+    let status = "NOT_LOGGED_IN";
+    if (req.body.name && req.body.pass && req.body.dbpass)
+        if (req.body.name === process.env.ADMIN_NAME && req.body.pass === process.env.ADMIN_PASS)
+            if (req.body.dbpass === process.env.DB_PASS) {
+                status = "LOGGED_IN";
+                return res.json({ status: 200 });
+            }
+    status === "NOT_LOGGED_IN" && res.json({ status: 401 });
+});
+
+app.post('/newUsername', (req, res) => {
+    readFile("database/users.json", (_, data) => {
+        const objects = JSON.parse(data);
+        const index = objects.findIndex(user => user.name === req.body.currUsername);
+        compare(req.body.password, objects[index].pass, (e, correct) => {
+            const { newUsername } = req.body;
+            if (correct && !e) {
+                objects[index].name = newUsername;
+                writeFile("database/users.json", JSON.stringify(objects, null, 2), _ => {});
+                res.json({ status: 200, newData: objects[index] });
+            } else res.json({ status: 401 });
+        });
+    });
+});
+
+app.post('/deleteAccount', (req, res) => {
+    readFile("database/users.json", (_, data) => {
+        const objects = JSON.parse(data);
+        const index = objects.findIndex(user => user.name === req.body.username);
+        objects.splice(index, 1);
+        writeFile("database/users.json", JSON.stringify(objects, null, 2), _ => {});
+        res.json({ status: 200 });
     });
 });
 

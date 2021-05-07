@@ -11,9 +11,11 @@ import Woodwind from './Pages/Instruments/Woodwind/Woodwind';
 import Percussion from './Pages/Instruments/Percussion/Percussion';
 import Questions from './Pages/Questions/Questions';
 import Practice from './Pages/PracticeLeaderboard/Practice';
+import Account from './Pages/Account/Account';
 
 export default function App(props) {
     const { entry } = props;
+
     return (
         <React.Fragment>
             <BrowserRouter>
@@ -27,6 +29,7 @@ export default function App(props) {
                     <Route exact path="/percussion-bass" component={Percussion} />
                     <Route exact path="/questions" component={Questions} />
                     <Route exact path="/practice-leaderboard" component={Practice} />
+                    <Route exact path="/account" component={Account} />
                 </Switch>
             </BrowserRouter>
         </React.Fragment>

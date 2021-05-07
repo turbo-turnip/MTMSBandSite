@@ -24,7 +24,7 @@ export default function Home() {
                     else loggedIn = false;
                 });
         }
-    });
+    }, []);
 
     return (
         <React.Fragment>

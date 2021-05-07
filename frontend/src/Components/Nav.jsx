@@ -23,7 +23,11 @@ export default function Nav(props) {
                     <details className="account-nav">
                         <summary>{account.name}</summary>
                         <div className="account-nav-dropdown">
-                            <button>Account</button>
+                            <button>
+                                <Link to="/account">
+                                    Account
+                                </Link>
+                            </button>
                             <button onClick={logOutHandler}>Log Out</button>
                         </div>
                     </details>}

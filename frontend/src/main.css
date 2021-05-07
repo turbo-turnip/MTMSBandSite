@@ -142,6 +142,7 @@ nav .nav-links>a {
     z-index: 1;
     background: linear-gradient(90deg, #efefef, #efefef80);
     padding-bottom: 2em;
+    transition: .1s;
 }
 
 .banner .strike-through {
@@ -151,7 +152,8 @@ nav .nav-links>a {
     background: linear-gradient(90deg, var(--secondary-yellow), #ffff9070);
     right: 0;
     top: 0;
-    transform: skew(-20deg) translateX(20%)
+    transform: skew(-20deg) translateX(20%);
+    transition: .1s;
 }
 
 .banner-content h1 {
@@ -388,7 +390,7 @@ main .practice-books {
 .account-nav .account-nav-dropdown {
     width: 160%;
     position: absolute;
-    left: -5px;
+    right: -5px;
     flex-direction: column;
     top: 0;
     background: var(--primary-white);
@@ -1047,4 +1049,53 @@ input[type=range]:focus::-ms-fill-upper {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.account {
+    width: 100%;
+    height: calc(100vh - (80px - 1em));
+    position: relative;
+    top: calc(80px - 1em);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.account .header {
+    width: 100vw;
+    height: 15vh;
+    max-height: 180px;
+    min-height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 1em;
+    background: linear-gradient(90deg, var(--primary-blue), var(--secondary-yellow), var(--primary-white));
+}   
+.account h4 {
+    margin-top: 1em;
+    font-size: 1.7em;
+    margin-bottom: .3em;
+}
+.account input {
+    font-size: 1.2em;
+    padding: .3em .6em;
+    width: 80%;
+    max-width: 400px;
+    margin-bottom: .3em;
+    border: 1px solid #ddd;
+}
+.account > button {
+    background: var(--primary-blue);
+    border: none;
+    color: #fff;
+    padding: .3em .6em;
+    font-size: 1.3em;
+    margin-top: .3em;
+    cursor: pointer;
+}
+.account > button:last-child {
+    background: #f00;
+    margin-top: 3em;
 }

@@ -24,7 +24,7 @@ export default function Woodwind() {
                     else loggedIn = false;
                 });
         }
-    });
+    }, []);
 
     const changeInstrument = inst => {
         fetch("/Instruments.json", {
