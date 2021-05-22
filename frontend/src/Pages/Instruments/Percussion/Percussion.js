@@ -9,7 +9,7 @@ export default function Percussion() {
 
     useEffect(() => {
         if (loggedIn) {
-            fetch("/getUserData", {
+            fetch("https://mtms-band-site.herokuapp.com/getUserData", {
                 'method': 'GET',
                 'headers': {
                     'Content-Type': 'application/json',
@@ -48,6 +48,7 @@ export default function Percussion() {
                 {
                     currInstrument === 0 ?
                         <React.Fragment>
+                            <h1>Pick the instrument that you are playing in band!</h1>
                             <div className="options">
                                 <div className="instrument">
                                     <h4 onClick={() => changeInstrument("Bass")}>Bass</h4>
@@ -68,7 +69,6 @@ export default function Percussion() {
                                     </div>
                                 </div>
                             </div>
-                            <h1>Pick the instrument that you are playing in band!</h1>
                         </React.Fragment> : <Instrument data={currInstrument} />
                 }
             </div>

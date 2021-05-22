@@ -5,7 +5,7 @@ export default function QuestionPopup(props) {
     const [ isAppropriate, setIsAppropriate ] = useState(true);
 
     useEffect(() => {
-        fetch("/badwords")
+        fetch("https://mtms-band-site.herokuapp.com/badwords")
             .then(response => response.json())
             .then(response => setBadWords(response.badwords));
     }, []);

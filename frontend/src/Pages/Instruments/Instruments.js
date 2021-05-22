@@ -8,7 +8,7 @@ export default function Instruments() {
 
     useEffect(() => {
         if (loggedIn) {
-            fetch("/getUserData", {
+            fetch("https://mtms-band-site.herokuapp.com/getUserData", {
                 'method': 'GET',
                 'headers': {
                     'Content-Type': 'application/json',
@@ -28,6 +28,7 @@ export default function Instruments() {
     return (
         <div className="instruments">
             <Nav loggedIn={loggedIn} account={accountData} />
+            <h1>Pick the instrument category you are playing in band!</h1>
             <div className="options">
                 <div className="brass">
                     <Link to="/brass">brass</Link>
@@ -48,7 +49,6 @@ export default function Instruments() {
                     </div>
                 </div>
             </div>
-            <h1>Pick the instrument category you are playing in band!</h1>
         </div>
     );
 }

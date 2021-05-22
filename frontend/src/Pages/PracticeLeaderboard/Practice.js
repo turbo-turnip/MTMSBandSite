@@ -13,7 +13,7 @@ export default function Practice() {
 
     useEffect(() => {
         if (loggedIn) {
-            fetch("/getUserData", {
+            fetch("https://mtms-band-site.herokuapp.com/getUserData", {
                 'method': 'GET',
                 'headers': {
                     'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ export default function Practice() {
     }, []);
 
     useEffect(() => {
-        fetch("/times")
+        fetch("https://mtms-band-site.herokuapp.com/times")
             .then(response => response.json())
             .then(response => {
                 setTop100(response.times.sort((a, b) => (a.time < b.time ? 1 : -1)).slice(0, 100));
@@ -46,7 +46,7 @@ export default function Practice() {
 
     const newTimeHandler = input => {
         if (input.value && input.nextSibling.value !== "") {
-            fetch("/createTime", {
+            fetch("https://mtms-band-site.herokuapp.com/createTime", {
                 'method': 'POST',
                 'headers': { 'Content-Type': 'application/json' },
                 'body': JSON.stringify({

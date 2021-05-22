@@ -12,6 +12,7 @@ import Percussion from './Pages/Instruments/Percussion/Percussion';
 import Questions from './Pages/Questions/Questions';
 import Practice from './Pages/PracticeLeaderboard/Practice';
 import Account from './Pages/Account/Account';
+import Console from './Pages/Admin/Console';
 
 export default function App(props) {
     const { entry } = props;
@@ -30,6 +31,7 @@ export default function App(props) {
                     <Route exact path="/questions" component={Questions} />
                     <Route exact path="/practice-leaderboard" component={Practice} />
                     <Route exact path="/account" component={Account} />
+                    <Route exact path="/admin" component={Console} />
                 </Switch>
             </BrowserRouter>
         </React.Fragment>

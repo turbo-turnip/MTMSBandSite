@@ -7,7 +7,7 @@ export default function Questions() {
 
     useEffect(() => {
         if (loggedIn) {
-            fetch("/getUserData", {
+            fetch("https://mtms-band-site.herokuapp.com/getUserData", {
                 'method': 'GET',
                 'headers': {
                     'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ export default function Questions() {
 
     const newUsernameHandler = (newUsername, password) => {
         if (newUsername !== "" && password !== "") {
-            fetch("/newUsername", {
+            fetch("https://mtms-band-site.herokuapp.com/newUsername", {
                 'method': 'POST',
                 'headers': { 'Content-Type': 'application/json' },
                 'body': JSON.stringify({
@@ -48,7 +48,7 @@ export default function Questions() {
 
     const deleteAccountHandler = () => {
         if (window.confirm("Are you sure you want to delete your account? This action can't be undone.")) {
-            fetch("/deleteAccount", {
+            fetch("https://mtms-band-site.herokuapp.com/deleteAccount", {
                 'method': 'POST',
                 'headers': { 'Content-Type': 'application/json' },
                 'body': JSON.stringify({
@@ -57,6 +57,7 @@ export default function Questions() {
             })  
                 .then(response => response.json())
                 .then(response => {
+                    localStorage.removeItem("ACCESS_TOKEN");
                     localStorage.removeItem("USER_TOKEN");
                     window.location.href = "/register";
                 });

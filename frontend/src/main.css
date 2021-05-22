@@ -14,12 +14,12 @@
 
 body {
     background: #fff;
-    overflow-x: hidden
+    overflow-x: hidden;
 }
 
 nav {
     background: var(--primary-blue);
-    width: 100%;
+    width: 100vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -52,7 +52,47 @@ nav .logo h4 {
 nav .nav-links {
     display: flex;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
+    position: relative;
+    transform: translateX(0%);
+}
+
+nav .burger {
+    width: 30px;
+    height: 20px;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+    z-index: 100000001 !important;
+}
+
+nav .burger::after {
+    content: "";
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(.5);
+    opacity: 0;
+    border-radius: 50%;
+    z-index: -1;
+    transition: .4s;
+}
+
+nav .burger:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.2;
+}
+
+nav .burger span {
+    width: 100%;
+    height: 10%;
+    background: #fff;
 }
 
 nav .nav-links>a {
@@ -91,6 +131,10 @@ nav .nav-links>a {
     text-decoration: none;
 }
 
+.nav-links .auth {
+    display: flex;
+}
+
 .nav-links .auth a:hover {
     background: #eee;
 }
@@ -117,7 +161,7 @@ nav .nav-links>a {
 }
 
 .banner {
-    width: 100%;
+    width: 100vw;
     height: calc(100vh - (80px - 1em));
     max-height: 800px;
     margin-top: calc(80px - 1em);
@@ -129,6 +173,7 @@ nav .nav-links>a {
     background-position: top;
     background-size: cover;
     position: relative;
+    left: 0;
     z-index: 1
 }
 
@@ -188,7 +233,7 @@ nav .nav-links>a {
         font-size: 1.1em
     }
     nav .nav-links button {
-        font-size: 1em!important
+        font-size: 1em !important
     }
 }
 
@@ -198,7 +243,7 @@ nav .nav-links>a {
     }
 }
 
-@media (max-width:540px) {
+@media (max-width:840px) {
     nav .logo {
         display: none
     }
@@ -217,13 +262,45 @@ nav .nav-links>a {
     }
 }
 
-@media (max-width:420px) {
+@media (max-width: 620px) {
     nav .nav-links a {
         font-size: .9em
     }
     nav .nav-links button {
-        font-size: .9em!important;
-        padding: .1em .6em!important
+        font-size: .9em !important;
+        padding: .1em .6em !important
+    }
+}
+
+@media (max-width: 700px) {
+    nav .nav-links {
+        position: absolute;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: var(--primary-blue);
+        z-index: 100000000;
+        transform: translateX(100%);
+        transition: .4s;
+    }
+    nav .nav-links a {
+        font-size: 2em !important;
+    }
+    nav .nav-links .auth {
+        flex-direction: column;
+    }
+    nav .burger {
+        display: flex;
+    }
+}
+
+@media (min-width: 700px) {
+    nav .nav-links {
+        transform: translateX(0%) !important;
     }
 }
 
@@ -254,6 +331,12 @@ main ol {
     padding: 2em 3em;
     border: 1px solid #eee;
     border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+    main ol {
+        padding: 2em 1.5em;
+    }
 }
 
 main ol li {
@@ -297,11 +380,12 @@ main .practice-books {
 }
 
 .metronome {
-    width: 500px;
+    max-width: 600px;
+    width: 98%;
     height: 200px;
 }
 
-.register, .login {
+.register, .login, .admin-auth {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -421,6 +505,7 @@ main .practice-books {
 .instruments h1 {
     font-size: 2em;
     font-weight: lighter;
+    margin-top: 40px;
 }
 
 .instruments .options {
@@ -428,7 +513,6 @@ main .practice-books {
     align-items: flex-start;
     justify-content: center;
     width: 100vw;
-    margin-top: 2em;
 }
 
 /* select all the cards */
@@ -615,6 +699,13 @@ main .practice-books {
 
 .reeds {
     margin: 2em 0 .6em 0;
+}
+
+@media (max-width: 500px) {
+    .reed, .teacher {
+        width: 100%;
+        border: none;
+    }
 }
 
 .diagram-container {
@@ -1035,6 +1126,14 @@ input[type=range]:focus::-ms-fill-upper {
     margin-bottom: .5em;
 }
 
+.practice-time-popup select {
+    width: 100%;
+    font-size: 1.2em;
+    padding: .3em .5em;
+    border: 1px solid #eee;
+    border-radius: 6px;
+}
+
 .practice-time-popup p {
     color: #f00;
 }
@@ -1072,12 +1171,14 @@ input[type=range]:focus::-ms-fill-upper {
     align-items: center;
     padding-left: 1em;
     background: linear-gradient(90deg, var(--primary-blue), var(--secondary-yellow), var(--primary-white));
-}   
+}
+
 .account h4 {
     margin-top: 1em;
     font-size: 1.7em;
     margin-bottom: .3em;
 }
+
 .account input {
     font-size: 1.2em;
     padding: .3em .6em;
@@ -1086,7 +1187,8 @@ input[type=range]:focus::-ms-fill-upper {
     margin-bottom: .3em;
     border: 1px solid #ddd;
 }
-.account > button {
+
+.account>button {
     background: var(--primary-blue);
     border: none;
     color: #fff;
@@ -1095,7 +1197,8 @@ input[type=range]:focus::-ms-fill-upper {
     margin-top: .3em;
     cursor: pointer;
 }
-.account > button:last-child {
+
+.account>button:last-child {
     background: #f00;
     margin-top: 3em;
 }

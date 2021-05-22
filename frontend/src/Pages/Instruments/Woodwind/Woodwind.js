@@ -9,7 +9,7 @@ export default function Woodwind() {
 
     useEffect(() => {
         if (loggedIn) {
-            fetch("/getUserData", {
+            fetch("https://mtms-band-site.herokuapp.com/getUserData", {
                 'method': 'GET',
                 'headers': {
                     'Content-Type': 'application/json',
@@ -48,6 +48,7 @@ export default function Woodwind() {
                 {
                     currInstrument === 0 ?
                         <React.Fragment>
+                            <h1>Pick the instrument that you are playing in band!</h1>
                             <div className="options">
                                 <div className="instrument">
                                     <h4 onClick={() => changeInstrument("Flute")}>Flute</h4>
@@ -80,7 +81,6 @@ export default function Woodwind() {
                                     </div>
                                 </div>
                             </div>
-                            <h1>Pick the instrument that you are playing in band!</h1>
                         </React.Fragment> : <Instrument data={currInstrument} />
                 }
             </div>

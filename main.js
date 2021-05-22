@@ -156,4 +156,29 @@ app.post('/deleteAccount', (req, res) => {
     });
 });
 
+const authorizeAdmin = (req, res, next) => {
+    const { dbId, adminPass, adminUser } = req.body;
+    if (dbId && adminPass && adminUser) {
+        if (dbId === process.env.DATABASE_ID && 
+            adminPass === process.env.ADMIN_PASS &&
+            process.env.ADMIN_USERS.split(' ').includes(adminUser)) {
+            req.authorized = true;
+            next();
+        } else {
+            req.authorized = false;
+            next();
+        }
+    } else {
+        req.authorized = false;
+        next();
+    }
+}
+
+app.post('/authenticateAdmin', authorizeAdmin, (req, res) => {
+    if (req.authorized) {
+        const { adminUser } = req.body;
+        res.json({ status: 200, adminUser });
+    } else res.json({ status: 401 });
+});
+
 app.listen(process.env.PORT || 8080, () => console.log('Server running...'));

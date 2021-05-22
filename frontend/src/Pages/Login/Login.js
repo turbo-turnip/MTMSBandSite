@@ -10,7 +10,7 @@ export default function Register() {
         e.preventDefault();
 
         const [ name, pass ] = e.target.querySelectorAll(".auth-input");
-        fetch("/login", {
+        fetch("https://mtms-band-site.herokuapp.com/login", {
             'method': 'POST',
             'headers': { 'Content-Type': 'application/json' },
             'body': JSON.stringify({
