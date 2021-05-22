@@ -175,6 +175,7 @@ const authorizeAdmin = (req, res, next) => {
 }
 
 app.post('/authenticateAdmin', authorizeAdmin, (req, res) => {
+    console.log('test');
     if (req.authorized) {
         const { adminUser } = req.body;
         res.json({ status: 200, adminUser });
