@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Nav from '../../Components/Nav';
 import Banner from './Banner';
 import Content from './Content';
+import ChatBot from '../../Components/ChatBot/ChatBot';
 
 export default function Home() {
     let [ loggedIn,, ] = useState(localStorage.hasOwnProperty("ACCESS_TOKEN"));
@@ -30,6 +31,7 @@ export default function Home() {
         <React.Fragment>
             <Nav loggedIn={loggedIn} account={accountData} />
             <Banner />
+            <ChatBot loggedIn={loggedIn} username={loggedIn ? accountData.username : ""} />
             <Content />
         </React.Fragment>
     );

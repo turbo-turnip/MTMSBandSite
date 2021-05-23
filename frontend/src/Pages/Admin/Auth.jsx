@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 export default function Auth(props) {
+    const [ unauthorized, setUnauthorized ] = useState(false);
     const adminUsernameRef = useRef();
     const adminPassRef = useRef();
     const databaseIdRef = useRef();
@@ -9,7 +10,7 @@ export default function Auth(props) {
     const authorizeHandler = e => {
         e.preventDefault();
 
-        fetch("https://mtms-band-site.herokuapp.com/authenticateAdmin", {
+        fetch("http://localhost:8080/authenticateAdmin", {
             'method': 'POST',
             'headers': { 'Content-Type': 'application/json' },
             'body': JSON.stringify({
@@ -20,12 +21,21 @@ export default function Auth(props) {
         })
             .then(response => response.json())
             .then(response => {
-                console.log(response);
+                if (response.status === 200) {
+                    props.successFn(response.adminUser);
+                    setUnauthorized(false);
+                } else setUnauthorized(true);
             });
     }
 
+    useEffect(() => {
+        if (unauthorized)
+            setTimeout(() => window.location.reload(), 1500);
+    }, [ unauthorized ]);
+
     return (
         <div className="admin-auth">
+            {unauthorized && <h4>Unauthorized!</h4>}
             <form className="auth-form" onSubmit={e => authorizeHandler(e)}>
                 <h1>Authorize</h1>
                 <div>
