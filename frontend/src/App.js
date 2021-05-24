@@ -2,6 +2,7 @@ import './main.css';
 import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import * as ReportUtils from './report/utils.js';
+import Footer from './Components/Footer';
 // page components
 import Home from './Pages/Home/Home';
 import Register from './Pages/Register/Register';
@@ -54,6 +55,7 @@ export default function App(props) {
                     <Route exact path="/admin" component={Console} />
                     <Route exact path="/newsletter" component={Newsletter} />
                 </Switch>
+                <Footer />
             </BrowserRouter>
         </React.Fragment>
     );

@@ -194,8 +194,8 @@ app.post('/report', (req, res) => {
             if (browser.Name === req.body.browser)
                 browser.visits++, browserMatch = true;
         });
-        !OSMatch && object.operatingSystems.push({ System: req.body.OS, visits: 1 });
-        !browserMatch && object.webBrowsers.push({ Name: req.body.browser, visits: 1 });
+        !OSMatch && object.operatingSystems.unshift({ System: req.body.OS, visits: 1 });
+        !browserMatch && object.webBrowsers.unshift({ Name: req.body.browser, visits: 1 });
 
         let mostPopularBrowser = { visits: 0 };
         let mostPopularOS = { visits: 0 };
@@ -227,7 +227,7 @@ app.post('/submitNewsletter', (req, res) => {
             date,
             content
         }));
-        objects.push(newsletter);
+        objects.unshift(newsletter);
         writeFile("database/newsletters.json", JSON.stringify(objects, null, 2), _ => {});
     });
 });
@@ -238,6 +238,32 @@ app.get('/getNewsletters', (req, res) => {
         return !e && res.json({ status: 200, objects });
         res.json({ status: 500 });
     });
+});
+
+app.post('/clearNewslettersDB', (req, res) => {
+    if (req.body.dbId === process.env.DATABASE_ID) {
+        writeFile("database/newsletters.json", JSON.stringify([], null, 2), _ => {});
+        res.json({ status: 200 });
+    } else res.json({ status: 401 });
+});
+
+app.post('/clearQuestionsDB', (req, res) => {
+    if (req.body.dbId === process.env.DATABASE_ID) {
+        writeFile("database/questions.json", JSON.stringify([], null, 2), _ => {});
+        res.json({ status: 200 });
+    } else res.json({ status: 401 });
+});
+
+app.post('/clearStatsDB', (req, res) => {
+    if (req.body.dbId === process.env.DATABASE_ID) {
+        writeFile("database/stats.json", JSON.stringify({
+            "operatingSystems": [],
+            "webBrowsers": [],
+            "mostPopularOS": {},
+            "mostPopularWebBrowser": {}
+        }), _ => {});
+        res.json({ status: 200 });
+    } else res.json({ status: 401 });
 });
 
 app.listen(process.env.PORT || 8080, () => console.log('Server running...'));

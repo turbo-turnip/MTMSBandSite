@@ -14,7 +14,17 @@
 
 body {
     background: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
     overflow-x: hidden;
+    padding-bottom: 300px;
+}
+
+@media (max-width: 631px) {
+    body {
+        padding-bottom: 500px;
+    }
 }
 
 nav {
@@ -698,7 +708,7 @@ main .practice-books {
 }
 
 .reeds {
-    margin: 2em 0 .6em 0;
+    /* margin: 2em 0 4em 0; */
 }
 
 @media (max-width: 500px) {
@@ -1409,6 +1419,7 @@ input[type=range]:focus::-ms-fill-upper {
     margin-top: 1em;
     padding: .5em 2em;
 }
+
 .admin-newsletter textarea {
     width: 100%;
     height: 100px;
@@ -1418,6 +1429,7 @@ input[type=range]:focus::-ms-fill-upper {
     border: 1px solid #ddd;
     border-radius: 6px;
 }
+
 .admin-newsletter button {
     font-size: 1.1em;
     padding: .3em 0;
@@ -1432,6 +1444,7 @@ input[type=range]:focus::-ms-fill-upper {
     margin-top: .3em;
     border-radius: 6px;
 }
+
 .admin-newsletter .newsletter-model {
     width: 100%;
     max-width: 300px;
@@ -1447,6 +1460,7 @@ input[type=range]:focus::-ms-fill-upper {
     border-radius: 6px;
     padding: .5em .8em;
 }
+
 .newsletters {
     width: 100%;
     margin-top: 5em;
@@ -1456,6 +1470,7 @@ input[type=range]:focus::-ms-fill-upper {
     flex-direction: column;
     padding: 1em 1.2em;
 }
+
 .newsletters .newsletter {
     width: 100%;
     max-width: 400px;
@@ -1466,4 +1481,56 @@ input[type=range]:focus::-ms-fill-upper {
     box-shadow: 0 3px 6px 2px #0005;
     border-radius: 6px;
     padding: .5em 1em;
+}
+
+.newsletters .newsletter::before {
+    content: attr(data-date-initialized);
+}
+
+.footer {
+    width: 100vw;
+    background: var(--primary-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: .8em 1em;
+    position: absolute;
+    bottom: 0px;
+}
+
+.footer .sections {
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.footer>h4 {
+    color: #fff;
+    margin-bottom: 1em;
+}
+
+.footer a, .footer span {
+    color: #fff;
+}
+
+.footer .sections .section {
+    width: 50%;
+    min-width: 300px;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+@media (max-width: 631px) {
+    .footer .sections .section {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.instruments + footer {
+    display: none;
 }
