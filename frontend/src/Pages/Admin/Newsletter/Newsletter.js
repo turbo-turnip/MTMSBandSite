@@ -33,11 +33,7 @@ export default function Newsletter(props) {
                     date: new Date().toLocaleDateString(),
                     content: parsed
                 })
-            })
-                .then(response => response.json())
-                .then(response => {
-                    console.log(response);
-                });
+            });
         }
     }
 
