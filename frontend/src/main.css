@@ -1212,7 +1212,7 @@ input[type=range]:focus::-ms-fill-upper {
     text-align: left;
 }
 
-.admin-console .header + h2{
+.admin-console .header+h2 {
     text-align: center;
     margin-top: .5em;
 }
@@ -1242,12 +1242,15 @@ input[type=range]:focus::-ms-fill-upper {
     padding: .5em;
     border-radius: 8px;
 }
+
 .admin-console .categories .category:hover {
     background: #ddd;
 }
+
 .admin-console .categories .category img {
     width: 46px;
 }
+
 .chat-bot {
     position: fixed;
     right: 20px;
@@ -1261,6 +1264,7 @@ input[type=range]:focus::-ms-fill-upper {
     box-shadow: 0 0 6px 3px #00000050;
     overflow: hidden;
 }
+
 .chat-bot h4 {
     width: 40%;
     max-width: 250px;
@@ -1271,6 +1275,7 @@ input[type=range]:focus::-ms-fill-upper {
     position: fixed;
     border-radius: 12px 12px 0 0;
 }
+
 .chat-bot .chat-bot-form {
     position: fixed;
     right: 20px;
@@ -1280,6 +1285,7 @@ input[type=range]:focus::-ms-fill-upper {
     border-radius: 0 0 4px 4px;
     overflow: hidden;
 }
+
 .chat-bot .chat-bot-form input {
     width: 100%;
     font-size: 1.2em;
@@ -1289,7 +1295,9 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 @media (max-width: 400px) {
-    .chat-bot { display: none; }
+    .chat-bot {
+        display: none;
+    }
 }
 
 .chat-bot .chat-pane {
@@ -1302,6 +1310,7 @@ input[type=range]:focus::-ms-fill-upper {
     overflow: scroll;
     overflow-x: hidden;
 }
+
 .chat-bot .chat-pane .message.bot-message {
     margin: .6em 0;
     background: #0099ff;
@@ -1313,6 +1322,7 @@ input[type=range]:focus::-ms-fill-upper {
     position: relative;
     border-radius: 6px;
 }
+
 .chat-bot .chat-pane .message.user-message {
     margin: .6em 0;
     background: #ccc;
@@ -1325,28 +1335,31 @@ input[type=range]:focus::-ms-fill-upper {
     transform: translateX(-100%);
     border-radius: 6px;
 }
+
 .chat-bot .chat-pane .message.bot-message::before {
     content: "";
-	width: 1px;
-	height: 1px;
-	border: 8px solid transparent;
-	border-right: 8px solid #0099ff;
+    width: 1px;
+    height: 1px;
+    border: 8px solid transparent;
+    border-right: 8px solid #0099ff;
     position: absolute;
-	left: 0;
-	top: 50%;
-	transform: translate(-100%, -50%);
+    left: 0;
+    top: 50%;
+    transform: translate(-100%, -50%);
 }
+
 .chat-bot .chat-pane .message.user-message::after {
     content: "";
-	width: 1px;
-	height: 1px;
-	border: 8px solid transparent;
-	border-left: 8px solid #ccc;
+    width: 1px;
+    height: 1px;
+    border: 8px solid transparent;
+    border-left: 8px solid #ccc;
     position: absolute;
-	right: 0;
-	top: 50%;
-	transform: translate(100%, -50%);
+    right: 0;
+    top: 50%;
+    transform: translate(100%, -50%);
 }
+
 .chat-bot h4 span {
     cursor: pointer;
     font-size: 1.2em;
@@ -1354,4 +1367,103 @@ input[type=range]:focus::-ms-fill-upper {
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.admin-console h1 {
+    text-align: center;
+    margin-top: .5em;
+    font-size: 1.5em;
+}
+
+.admin-console .os, .admin-console .browser {
+    width: 100%;
+    height: 100vh;
+    max-width: 100px;
+    max-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 4px 12px 4px #0003;
+    border-radius: 8px;
+    margin: 1em .5em;
+}
+
+.admin-console .oss, .admin-console .browsers {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.admin-console .admin-stats>h4 {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.admin-console .os h4, .admin-console .browser h4 {
+    font-size: 1.3em;
+}
+
+.admin-console .admin-newsletter {
+    margin-top: 1em;
+    padding: .5em 2em;
+}
+.admin-newsletter textarea {
+    width: 100%;
+    height: 100px;
+    font-size: 1.2em;
+    padding: .3em .5em;
+    resize: none;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+.admin-newsletter button {
+    font-size: 1.1em;
+    padding: .3em 0;
+    width: 70%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-blue);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: .3em;
+    border-radius: 6px;
+}
+.admin-newsletter .newsletter-model {
+    width: 100%;
+    max-width: 300px;
+    text-align: left;
+    margin-top: 1.5em;
+    border: 1px solid #ddd;
+    background: #f5f5f5;
+    height: 400px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 3em;
+    border-radius: 6px;
+    padding: .5em .8em;
+}
+.newsletters {
+    width: 100%;
+    margin-top: 5em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 1em 1.2em;
+}
+.newsletters .newsletter {
+    width: 100%;
+    max-width: 400px;
+    min-height: 300px;
+    height: min-content;
+    max-height: 1000px;
+    margin: 1em .5em;
+    box-shadow: 0 3px 6px 2px #0005;
+    border-radius: 6px;
+    padding: .5em 1em;
 }

@@ -1,0 +1,26 @@
+{
+  "operatingSystems": [
+    {
+      "System": "Mac OS",
+      "visits": 40
+    }
+  ],
+  "webBrowsers": [
+    {
+      "Name": "Chrome",
+      "visits": 39
+    },
+    {
+      "Name": "Firefox",
+      "visits": 1
+    }
+  ],
+  "mostPopularOS": {
+    "System": "Mac OS",
+    "visits": 40
+  },
+  "mostPopularWebBrowser": {
+    "Name": "Chrome",
+    "visits": 39
+  }
+}

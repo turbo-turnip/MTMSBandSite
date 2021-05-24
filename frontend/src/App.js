@@ -1,6 +1,7 @@
 import './main.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import * as ReportUtils from './report/utils.js';
 // page components
 import Home from './Pages/Home/Home';
 import Register from './Pages/Register/Register';
@@ -13,9 +14,28 @@ import Questions from './Pages/Questions/Questions';
 import Practice from './Pages/PracticeLeaderboard/Practice';
 import Account from './Pages/Account/Account';
 import Console from './Pages/Admin/Console';
+import Newsletter from './Pages/Newsletter/Newsletter';
 
 export default function App(props) {
     const { entry } = props;
+
+    useEffect(() => {
+        const browser = ReportUtils.default.DetectBrowser();
+        const OS = ReportUtils.default.DetectOS();
+        
+        fetch("http://localhost:8080/report", {
+            'method': 'POST',
+            'headers': { 'Content-Type': 'application/json' },
+            'body': JSON.stringify({
+                browser,
+                OS
+            })
+        })
+            .then(response => response.json())
+            .then(response => {
+                console.log(response);
+            });
+    }, []);
 
     return (
         <React.Fragment>
@@ -32,6 +52,7 @@ export default function App(props) {
                     <Route exact path="/practice-leaderboard" component={Practice} />
                     <Route exact path="/account" component={Account} />
                     <Route exact path="/admin" component={Console} />
+                    <Route exact path="/newsletter" component={Newsletter} />
                 </Switch>
             </BrowserRouter>
         </React.Fragment>

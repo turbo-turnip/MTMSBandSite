@@ -10,7 +10,7 @@ export default function Auth(props) {
     const authorizeHandler = e => {
         e.preventDefault();
 
-        fetch("http://localhost:8080/authenticateAdmin", {
+        fetch("https://mtms-band-site.herokuapp.com/authenticateAdmin", {
             'method': 'POST',
             'headers': { 'Content-Type': 'application/json' },
             'body': JSON.stringify({

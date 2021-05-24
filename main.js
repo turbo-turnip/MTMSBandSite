@@ -181,4 +181,63 @@ app.post('/authenticateAdmin', authorizeAdmin, (req, res) => {
     } else res.json({ status: 401 });
 });
 
+app.post('/report', (req, res) => {
+    readFile("database/stats.json", (_, data) => {
+        const object = JSON.parse(data);
+        let OSMatch = false;
+        let browserMatch = false;
+        object.operatingSystems.forEach(os => {
+            if (os.System === req.body.OS) 
+                os.visits++, OSMatch = true;
+        });
+        object.webBrowsers.forEach(browser => {
+            if (browser.Name === req.body.browser)
+                browser.visits++, browserMatch = true;
+        });
+        !OSMatch && object.operatingSystems.push({ System: req.body.OS, visits: 1 });
+        !browserMatch && object.webBrowsers.push({ Name: req.body.browser, visits: 1 });
+
+        let mostPopularBrowser = { visits: 0 };
+        let mostPopularOS = { visits: 0 };
+        object.webBrowsers.forEach(browser => {
+            if (browser.visits > mostPopularBrowser.visits) mostPopularBrowser = browser;
+        });
+        object.operatingSystems.forEach(OS => {
+            if (OS.visits > mostPopularOS.visits) mostPopularOS = OS;
+        });
+        object.mostPopularWebBrowser = mostPopularBrowser, object.mostPopularOS = mostPopularOS;
+        writeFile("database/stats.json", JSON.stringify(object, null, 2), _ => {});
+        res.json({ status: 200 });
+    });
+});
+
+app.get('/getStats', (req, res) => {
+    readFile("database/stats.json", (e, data) => {
+        const object = JSON.parse(data);
+        return !e && res.json({ status: 200, object });
+        res.json({ status: 500 });
+    });
+});
+
+app.post('/submitNewsletter', (req, res) => {
+    const { date, content } = req.body;
+    readFile("database/newsletters.json", (_, data) => {
+        const objects = JSON.parse(data);
+        const newsletter = JSON.parse(JSON.stringify({
+            date,
+            content
+        }));
+        objects.push(newsletter);
+        writeFile("database/newsletters.json", JSON.stringify(objects, null, 2), _ => {});
+    });
+});
+
+app.get('/getNewsletters', (req, res) => {
+    readFile("database/newsletters.json", (e, data) => {
+        const objects = JSON.parse(data);
+        return !e && res.json({ status: 200, objects });
+        res.json({ status: 500 });
+    });
+});
+
 app.listen(process.env.PORT || 8080, () => console.log('Server running...'));

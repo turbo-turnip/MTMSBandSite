@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import Message from './Message';
 
 export default function ChatBot(props) {
@@ -6,16 +6,6 @@ export default function ChatBot(props) {
     const [ expanded, setExpanded ] = useState(false);
     const [ chatPaneScrollY, setChatPaneScrollY ] = useState(0);
     const chatPaneRef = useRef();
-
-    useEffect(() => {
-        /* if (expanded && chatPaneRef.current.lastChild) {
-            chatPaneRef.current.lastChild.scrollIntoView({ behavior: "smooth", block: "center" });
-            const botMessages = chatPaneRef.current.querySelectorAll(".bot-message");
-            if (botMessages[botMessages.length - 1]) {
-                botMessages[botMessages.length - 1].scrollIntoView({ behavior: "smooth", block: "center" });
-            }
-        } */
-    });
 
     const messageSentHandler = e => {
         e.preventDefault();

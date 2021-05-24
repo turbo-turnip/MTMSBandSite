@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Auth from './Auth';
+import Stats from './Stats/Stats';
+import Newsletter from './Newsletter/Newsletter';
 
 export default function Console(props) {
     const [ adminUsername, setAdminUsername ] = useState("");
@@ -32,6 +34,8 @@ export default function Console(props) {
                             <img src="https://img.icons8.com/ios/50/4a90e2/data-configuration.png"/>
                         </div>
                     </div>
+                    {category === 1 && <Stats />}
+                    {category === 2 && <Newsletter />}
                 </React.Fragment>}
         </div>
     );
