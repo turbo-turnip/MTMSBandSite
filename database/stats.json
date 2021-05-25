@@ -2,13 +2,13 @@
   "operatingSystems": [
     {
       "System": "Mac OS",
-      "visits": 68
+      "visits": 74
     }
   ],
   "webBrowsers": [
     {
       "Name": "Chrome",
-      "visits": 67
+      "visits": 73
     },
     {
       "Name": "Firefox",
@@ -17,10 +17,10 @@
   ],
   "mostPopularOS": {
     "System": "Mac OS",
-    "visits": 68
+    "visits": 74
   },
   "mostPopularWebBrowser": {
     "Name": "Chrome",
-    "visits": 67
+    "visits": 73
   }
 }

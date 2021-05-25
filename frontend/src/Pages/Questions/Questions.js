@@ -43,7 +43,7 @@ export default function Questions() {
     }
 
     const newQuestionHandler = value => {
-        if (value ?? value !== "") {
+        if (value || value !== "") {
             fetch("https://mtms-band-site.herokuapp.com/createQuestion", {
                 'method': 'POST',
                 'headers': { 'Content-Type': 'application/json' },
@@ -57,6 +57,21 @@ export default function Questions() {
                     if (response.status === 200) {
                         setNewQuestionPopup(false);
                         setQuestions(response.data);
+                    }
+                });
+            fetch("http://localhost:8080/email", {
+                'method': 'POST',
+                'headers': { 'Content-Type': 'application/json' },
+                'body': JSON.stringify({
+                    user: accountData.name,
+                    question: value,
+                    date: new Date().toDateString()
+                })
+            })
+                .then(response => response.json())
+                .then(response => {
+                    if (response.status === 200) {
+                        console.log(response.message);
                     }
                 });
         }

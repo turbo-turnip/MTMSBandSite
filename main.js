@@ -5,6 +5,16 @@ const { verify, sign } = require('jsonwebtoken');
 const {} = require('dotenv').config();
 const { compare, hash } = require('bcrypt');
 const cors = require('cors');
+const { createTransport } = require('nodemailer');
+
+// email setup
+const transporter = createTransport({
+    service: process.env.EMAIL_SERVICE,
+    auth: {
+        user: process.env.BOT_EMAIL,
+        pass: process.env.BOT_PASS
+    }
+});
 
 app.use(cors());
 app.use(express.json({ limit: '1MB' }));
@@ -264,6 +274,39 @@ app.post('/clearStatsDB', (req, res) => {
         }), _ => {});
         res.json({ status: 200 });
     } else res.json({ status: 401 });
+});
+
+app.post('/email', (req, res) => {
+    const { user, question, date } = req.body;
+    transporter.sendMail({
+        from: process.env.BOT_EMAIL,
+        to: process.env.ADMIL_EMAIL_TO,
+        subject: `${user} asked a question`,
+        html: `
+            <h3>${user} asked a question on MTMSBandSite on ${date}.</h3>
+            <p style="font-size: 1.3em">
+                ${user} asked:
+                <br/>
+                <b>${question}</b>
+            </p>
+            <p style="font-size: 1.2em">Answer it <a href="https://mtmsband.netlify.app/questions">by clicking this link!</a>
+            <br/>
+            <br/>
+            <p style="font-size: 1.3em">
+                Sincerely,
+                <br/>
+                <b><em>MTMS Email Bot</em></b>
+            </p>
+        `
+    }, (e, info) => {
+        if (e) {
+            console.log(e);
+            res.json({ status: 500 });
+        } else {
+            console.log(info.response);
+            res.json({ status: 200, message: info.response });
+        }
+    });
 });
 
 app.listen(process.env.PORT || 8080, () => console.log('Server running...'));

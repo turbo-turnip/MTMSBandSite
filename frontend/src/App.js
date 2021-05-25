@@ -16,6 +16,7 @@ import Practice from './Pages/PracticeLeaderboard/Practice';
 import Account from './Pages/Account/Account';
 import Console from './Pages/Admin/Console';
 import Newsletter from './Pages/Newsletter/Newsletter';
+import Changelog from './Pages/Changelog/Changelog';
 
 export default function App(props) {
     const { entry } = props;
@@ -24,18 +25,14 @@ export default function App(props) {
         const browser = ReportUtils.default.DetectBrowser();
         const OS = ReportUtils.default.DetectOS();
         
-        fetch("http://localhost:8080/report", {
+        fetch("https://mtms-band-site.herokuapp.com/report", {
             'method': 'POST',
             'headers': { 'Content-Type': 'application/json' },
             'body': JSON.stringify({
                 browser,
                 OS
             })
-        })
-            .then(response => response.json())
-            .then(response => {
-                console.log(response);
-            });
+        });
     }, []);
 
     return (
@@ -54,6 +51,7 @@ export default function App(props) {
                     <Route exact path="/account" component={Account} />
                     <Route exact path="/admin" component={Console} />
                     <Route exact path="/newsletter" component={Newsletter} />
+                    <Route exact path="/changelog" component={Changelog} />
                 </Switch>
                 <Footer />
             </BrowserRouter>
