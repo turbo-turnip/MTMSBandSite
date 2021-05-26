@@ -7,7 +7,7 @@
 ***Features***
 * Homepage tutorial video that explains how features and site works
 * Created page translater that can be used to translate page content to a different language
-* Adding more commands to homepage bot soon
+* Migrated bot to use Google's DialogFlow so it's more capable and understanding
 
 ## Version 2.5.1
 ***Description***
