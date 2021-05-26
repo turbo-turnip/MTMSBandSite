@@ -59,7 +59,7 @@ export default function Questions() {
                         setQuestions(response.data);
                     }
                 });
-            fetch("http://localhost:8080/email", {
+            fetch("https://mtms-band-site.herokuapp.com/email", {
                 'method': 'POST',
                 'headers': { 'Content-Type': 'application/json' },
                 'body': JSON.stringify({

@@ -8,6 +8,18 @@
         <title>MTMS Band Site</title>
     </head>
     <body>
-        <div id="root"></div>
+            <div id="translator-selector"></div>
+
+            <script>
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'en'
+                }, 'translator-selector');
+            }
+            </script>
+            
+            <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            
+            <div id="root"></div>
     </body>
 </html>

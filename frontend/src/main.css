@@ -1534,9 +1534,10 @@ input[type=range]:focus::-ms-fill-upper {
     }
 }
 
-.instruments + footer {
+.instruments+footer {
     display: none;
 }
+
 .changelog {
     display: flex;
     justify-content: flex-start;
@@ -1545,6 +1546,7 @@ input[type=range]:focus::-ms-fill-upper {
     margin-top: 5em;
     width: 100%;
 }
+
 .changelog .content {
     width: 90%;
     margin-top: 1em;
@@ -1554,9 +1556,96 @@ input[type=range]:focus::-ms-fill-upper {
     padding: .8em 1.5em;
     border-radius: 6px;
 }
+
 .changelog .content li {
     margin-left: 30px;
 }
+
 .changelog .content h2 {
     margin-top: 1em;
+}
+.tutorial {
+    width: 100vw;
+    height: 100vh;
+    background: #00000099;
+    z-index: 10000000000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tutorial iframe {
+    max-width: 90vw;
+    max-height: 70vh;
+    width: 100%;
+    height: 100%;
+}
+.home-popup {
+    width: 100%;
+    max-height: 200px;
+    min-height: 100px;
+    position: fixed;
+    bottom: 0;
+    z-index: 100000000;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: .5em 1em;
+    box-shadow: 0 -3px 6px #0003;
+    transition: .4s;
+    transform-origin : bottom center;
+    padding-top: 40px;
+}
+.home-popup span {
+    position: absolute;
+    right: 13px;
+    top: 0px;
+    cursor: pointer;
+    font-size: 2.5em;
+}
+.home-popup button:not(.dont-show) {
+    font-size: 1.1em;
+    padding: .2em 0;
+    border: none;
+    background: var(--primary-blue);
+    cursor: pointer;
+    color: #fff;
+    margin-top: .3em;
+}
+.home-popup .dont-show {
+    font-size: 1em;
+    border: none;
+    width: max-content;
+    padding: .2em .3em;
+    position: absolute;
+    left: 15px;
+    top: 8px;
+    cursor: pointer;
+}
+.tutorial span {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    font-size: 5em;
+    color: #fff;
+    cursor: pointer;
+}
+#translator-selector {
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 80vh;
+    transform: rotate(90deg) translateY(140%);
+    background: #fff;
+    padding: .5em .8em;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 0px 6px 3px #0003;
+    transition: .4s;
+}
+
+#translator-selector:hover {
+    transform: rotate(90deg) translateY(100%);
 }

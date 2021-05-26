@@ -38,7 +38,6 @@ app.post('/login', (req, res) => {
 app.post('/register', (req, res) => {
     const { name, pass } = req.body;
     readFile("database/users.json", (_, data) => {
-        let user = {};
         const users = JSON.parse(data);
         const matchingUsers = users.filter(user => user.name === name);
         if (matchingUsers.length === 0) {

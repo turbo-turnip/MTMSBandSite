@@ -4,7 +4,6 @@ import Message from './Message';
 export default function ChatBot(props) {
     const [ messages, setMessages ] = useState([]);
     const [ expanded, setExpanded ] = useState(false);
-    const [ chatPaneScrollY, setChatPaneScrollY ] = useState(0);
     const chatPaneRef = useRef();
 
     const messageSentHandler = e => {
@@ -29,25 +28,29 @@ export default function ChatBot(props) {
                 response.questions.forEach(msg => message.includes(msg) && questions++);
                 response.thanks.forEach(msg => message.includes(msg) && thanks++);
 
-                if (Math.max(greetings, formalQuestions, newsletter, meanQuestions, resources, practiceLeaderboard, questions, thanks) === 0) {
-                    setMessages(prevState => [ ...prevState, { from: "MTMS Band Chat Bot", message: "I didn't understand that, sorry"} ]);
+                if (message.includes('potato')) {
+                    setMessages(prevState => [ ...prevState, { from: "MTMS Band Chat Bot", message: "Bot detected \"potato\". Bot thinks you are willa mackin. Is Bot correct?"} ]);
                 } else {
-                    if (greetings === Math.max(greetings, formalQuestions, newsletter, meanQuestions, resources, practiceLeaderboard, questions, thanks)) {
-                        setMessages(prevState => [ ...prevState, { from: "MTMS Band Chat Bot", message: "Hello!"} ]);
-                    } else if (formalQuestions === Math.max(greetings, formalQuestions, newsletter, meanQuestions, resources, practiceLeaderboard, questions, thanks)) {
-                        response.formalQuestions.forEach(question => message.includes(question.input) && setMessages(prevState => [ ...prevState, { from: "MTMS Band Chat Bot", message: question.output } ]));
-                    } else if (newsletter === Math.max(greetings, formalQuestions, newsletter, meanQuestions, resources, practiceLeaderboard, questions, thanks)) {
-                        setMessages(prevState => [ ...prevState, { from: "MTMS Band Chat Bot", message: "You can find the newsletter https://mtmsband.netlify.app/newsletter!!"} ]);
-                    } else if (meanQuestions === Math.max(greetings, formalQuestions, newsletter, meanQuestions, resources, practiceLeaderboard, questions, thanks)) {
-                        setMessages(prevState => [ ...prevState, { from: "MTMS Band Chat Bot", message: "no u"} ]);
-                    } else if (resources === Math.max(greetings, formalQuestions, newsletter, meanQuestions, resources, practiceLeaderboard, questions, thanks)) {
-                        setMessages(prevState => [ ...prevState, { from: "MTMS Band Chat Bot", message: "You can find your instrument and it's info https://mtmsband.netlify.app/instruments!!"} ]);
-                    } else if (practiceLeaderboard === Math.max(greetings, formalQuestions, newsletter, meanQuestions, resources, practiceLeaderboard, questions, thanks)) {
-                        setMessages(prevState => [ ...prevState, { from: "MTMS Band Chat Bot", message: "You can enter a practice time you're proud of https://mtmsband.netlify.app/practice-leaderboard!!"} ]);
-                    } else if (questions === Math.max(greetings, formalQuestions, newsletter, meanQuestions, resources, practiceLeaderboard, questions, thanks)) {
-                        setMessages(prevState => [ ...prevState, { from: "MTMS Band Chat Bot", message: "You can ask a question you have https://mtmsband.netlify.app/questions!!"} ]);
-                    } else if (thanks === Math.max(greetings, formalQuestions, newsletter, meanQuestions, resources, practiceLeaderboard, questions, thanks)) {
-                        setMessages(prevState => [ ...prevState, { from: "MTMS Band Chat Bot", message: "Your welcome! Happy to help."} ]);
+                    if (Math.max(greetings, formalQuestions, newsletter, meanQuestions, resources, practiceLeaderboard, questions, thanks) === 0) {
+                        setMessages(prevState => [ ...prevState, { from: "MTMS Band Chat Bot", message: "I didn't understand that, sorry"} ]);
+                    } else {
+                        if (greetings === Math.max(greetings, formalQuestions, newsletter, meanQuestions, resources, practiceLeaderboard, questions, thanks)) {
+                            setMessages(prevState => [ ...prevState, { from: "MTMS Band Chat Bot", message: "Hello!"} ]);
+                        } else if (formalQuestions === Math.max(greetings, formalQuestions, newsletter, meanQuestions, resources, practiceLeaderboard, questions, thanks)) {
+                            response.formalQuestions.forEach(question => message.includes(question.input) && setMessages(prevState => [ ...prevState, { from: "MTMS Band Chat Bot", message: question.output } ]));
+                        } else if (newsletter === Math.max(greetings, formalQuestions, newsletter, meanQuestions, resources, practiceLeaderboard, questions, thanks)) {
+                            setMessages(prevState => [ ...prevState, { from: "MTMS Band Chat Bot", message: "You can find the newsletter https://mtmsband.netlify.app/newsletter!!"} ]);
+                        } else if (meanQuestions === Math.max(greetings, formalQuestions, newsletter, meanQuestions, resources, practiceLeaderboard, questions, thanks)) {
+                            setMessages(prevState => [ ...prevState, { from: "MTMS Band Chat Bot", message: "no u"} ]);
+                        } else if (resources === Math.max(greetings, formalQuestions, newsletter, meanQuestions, resources, practiceLeaderboard, questions, thanks)) {
+                            setMessages(prevState => [ ...prevState, { from: "MTMS Band Chat Bot", message: "You can find your instrument and it's info https://mtmsband.netlify.app/instruments!!"} ]);
+                        } else if (practiceLeaderboard === Math.max(greetings, formalQuestions, newsletter, meanQuestions, resources, practiceLeaderboard, questions, thanks)) {
+                            setMessages(prevState => [ ...prevState, { from: "MTMS Band Chat Bot", message: "You can enter a practice time you're proud of https://mtmsband.netlify.app/practice-leaderboard!!"} ]);
+                        } else if (questions === Math.max(greetings, formalQuestions, newsletter, meanQuestions, resources, practiceLeaderboard, questions, thanks)) {
+                            setMessages(prevState => [ ...prevState, { from: "MTMS Band Chat Bot", message: "You can ask a question you have https://mtmsband.netlify.app/questions!!"} ]);
+                        } else if (thanks === Math.max(greetings, formalQuestions, newsletter, meanQuestions, resources, practiceLeaderboard, questions, thanks)) {
+                            setMessages(prevState => [ ...prevState, { from: "MTMS Band Chat Bot", message: "Your welcome! Happy to help."} ]);
+                        }
                     }
                 }
             }); 
