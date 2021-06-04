@@ -6,6 +6,7 @@ const {} = require('dotenv').config();
 const { compare, hash } = require('bcrypt');
 const { createTransport } = require('nodemailer');
 const pool = require('./dbSetup');
+const cors = require("cors");
 
 // email setup
 const transporter = createTransport({
@@ -16,7 +17,7 @@ const transporter = createTransport({
     }
 });
 
-app.use(require("cors").then((cors) => {return cors}))
+app.use(cors());
 app.use(express.json({ limit: '1MB' }));
  
 app.post('/login', async (req, res) => {
