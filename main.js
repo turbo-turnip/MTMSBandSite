@@ -16,9 +16,7 @@ const transporter = createTransport({
     }
 });
 
-app.use(require("cors")({
-	origin: "*"
-}));
+app.use(require("cors").then(cors => cors))
 app.use(express.json({ limit: '1MB' }));
  
 app.post('/login', async (req, res) => {
