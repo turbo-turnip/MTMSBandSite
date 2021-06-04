@@ -21,23 +21,23 @@ export default function Stats(props) {
                 <React.Fragment>
                     <h1>Operating Systems</h1>
                     <div className="oss">
-                        {stats.operatingSystems && stats.operatingSystems.map(os => 
+                        {stats.operating_systems && stats.operating_systems.map(os => 
                             <div className="os">
                                 <h4>{os.System}</h4>
                                 <span>Visits: {os.visits}</span>
                             </div>)}
                     </div>
-                    <h4>Most popular Operating System: {stats.mostPopularOS && stats.mostPopularOS.System} with {stats.mostPopularOS && stats.mostPopularOS.visits} visits.</h4>
+                    <h4>Most popular Operating System: {stats.popular_operating_system && stats.popular_operating_system.System} with {stats.popular_operating_system && stats.popular_operating_system.visits} visits.</h4>
 
                     <h1>Web Browsers</h1>
                     <div className="browsers">
-                        {stats.webBrowsers && stats.webBrowsers.map(browser => 
+                        {stats.web_browsers && stats.web_browsers.map(browser => 
                             <div className="browser">
                                 <h4>{browser.Name}</h4>
                                 <span>Visits: {browser.visits}</span>
                             </div>)}
                     </div>
-                    <h4>Most popular Web Browser: {stats.mostPopularWebBrowser && stats.mostPopularWebBrowser.Name} with {stats.mostPopularWebBrowser && stats.mostPopularWebBrowser.visits} visits.</h4>
+                    <h4>Most popular Web Browser: {stats.popular_browser && stats.popular_browser.Name} with {stats.popular_browser && stats.popular_browser.visits} visits.</h4>
                 </React.Fragment>}
         </div>
     );
