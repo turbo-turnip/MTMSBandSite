@@ -4,7 +4,6 @@ const { writeFile, readFile } = require('fs');
 const { verify, sign } = require('jsonwebtoken');
 const {} = require('dotenv').config();
 const { compare, hash } = require('bcrypt');
-const cors = require('cors');
 const { createTransport } = require('nodemailer');
 const pool = require('./dbSetup');
 
@@ -17,7 +16,11 @@ const transporter = createTransport({
     }
 });
 
-app.use(cors());
+app.use(function(req, res, next) {
+ 	res.header("Access-Control-Allow-Origin", "https://mtmsband.netlify.app/"); // update to match the domain you will make the request from
+  	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  	next();
+});
 app.use(express.json({ limit: '1MB' }));
  
 app.post('/login', async (req, res) => {
