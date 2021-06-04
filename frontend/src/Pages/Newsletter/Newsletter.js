@@ -42,7 +42,7 @@ export default function Newsletter(props) {
             <div className="newsletters">
                 {(newsletters && newsletters.length === 0) && <h4>No newsletters yet!</h4>}
                 {newsletters && newsletters.map(newsletter => 
-                    <div className="newsletter" data-date-initialized={newsletter.date} dangerouslySetInnerHTML={{
+                    <div className="newsletter" data-date-initialized={newsletter.date_created} dangerouslySetInnerHTML={{
                         __html: newsletter.content
                     }}></div>)}
             </div>

@@ -89,7 +89,7 @@ export default function Questions() {
                             <h4>No questions yet!</h4>
                             <p>Be the first to ask a question!</p>
                         </React.Fragment> :
-                    questions.map(question => <Question key={question.question + " " + question.from} loggedIn={loggedIn} username={accountData && accountData.name} question={question} />)
+                    questions.map(question => <Question key={question.content + " " + question.question_from} loggedIn={loggedIn} username={accountData && accountData.name} question={question} />)
                 }
             </div>
             {loggedIn ? <button className="new-question" onClick={addQuestionHandler}>Ask a question</button> : <h4>Register to ask a question</h4>}

@@ -23,8 +23,8 @@ export default function Question(props) {
                     from: username,
                     reply: String(e.target.previousSibling.value),
                     question: {
-                        from: question.from,
-                        question: question.question
+                        from: question.question_from,
+                        question: question.content
                     }
                 })
             })
@@ -38,7 +38,7 @@ export default function Question(props) {
 
     return (
         <div className="question" data-user={question.from}>
-            <h4>{question.question.trim().replace(/\n| {2}|\r/gm, ' ')}</h4>
+            <h4>{question.content.trim().replace(/\n| {2}|\r/gm, ' ')}</h4>
             <button 
                 className="question-reply" 
                 onClick={createReplyHandler} 

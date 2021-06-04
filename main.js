@@ -299,6 +299,10 @@ app.get('/getStats', async (req, res) => {
         res.json({ status: 500 });
     }); */
 	const object = await pool.query("SELECT * FROM stats");
+	object.rows[0].operating_systems = JSON.parse(object.rows[0].operating_systems;
+	object.rows[0].web_browsers = JSON.parse(object.rows[0].web_browsers);
+	object.rows[0].popular_operating_system = JSON.parse(object.rows[0].popular_operating_system);
+	object.rows[0].popular_browser = JSON.parse(object.rows[0].popular_browser);
 	return object && res.json({ status: 200, object: object.rows[0] });
 	res.json({ status: 500 });
 });
