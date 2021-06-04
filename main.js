@@ -17,7 +17,9 @@ const transporter = createTransport({
     }
 });
 
-app.use(cors());
+app.use(cors({
+	credentials: true
+}));
 app.use(express.json({ limit: '1MB' }));
  
 app.post('/login', async (req, res) => {
