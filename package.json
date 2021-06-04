@@ -2,6 +2,7 @@
   "name": "mtmsbandsite",
   "version": "2.5.1",
   "description": "The online website for Mount Tabor Middle School's band class!",
+	"engines": { "node": "14.15.5" },
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
