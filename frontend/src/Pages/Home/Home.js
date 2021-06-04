@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Nav from '../../Components/Nav';
 import Banner from './Banner';
 import Content from './Content';
-import ChatBot from '../../Components/ChatBot/ChatBot';
 import HomePopup from '../../Components/HomePopup';
 
 export default function Home() {
@@ -36,7 +35,6 @@ export default function Home() {
             {localStorage.getItem("showPopup") === 'true' && <HomePopup />}
             <Nav loggedIn={loggedIn} account={accountData} />
             <Banner />
-            <ChatBot loggedIn={loggedIn} username={loggedIn ? accountData.username : ""} />
             <Content />
         </React.Fragment>
     );
