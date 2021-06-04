@@ -1,5 +1,17 @@
 # MTMSBandSite Changelog
 
+## Version 3.0.0
+***Description***
+* Migrated databases to use PostgreSQL
+
+***Features***
+* Inhanced security and dropped JSON databases for Postgres
+* Made databases constant and more secure for heroku
+
+***Bug Patches***
+* Fixed cors errors and server code
+
+
 ## Version 2.5.4
 ***Description***
 * Added small features to site and homepage
