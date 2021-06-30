@@ -153,7 +153,8 @@ app.post('/reply', async (req, res) => {
 		const replies = JSON.parse(questions.rows[0].replies);
 		replies.push({ from, reply });
 		await pool.query("UPDATE questions SET replies = $1 WHERE question_from = $2 AND content = $3 AND question_id = $4", [ JSON.stringify(replies), question.from, question.question, questions.rows[0].question_id ]);
-		res.json({ status: 200 });
+		const newReplies = await pool.query("SELECT * FROM replies"); 
+		res.json({ status: 200, replies: newReplies.rows });
 	}
 });
 
