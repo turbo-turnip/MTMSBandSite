@@ -129,7 +129,7 @@ app.post('/createQuestion', async (req, res) => {
 	await pool.query("INSERT INTO questions (question_from, content, replies) VALUES ($1, $2, $3)", [ from, value, '[]' ]);
 	const newQuestions = await pool.query("SELECT * FROM questions");
 	const newAmtOfQuestions = newQuestions.rows.length;
-	if (amtOfQuestions + 1 === newAmtOfQuestions) res.json({ status: 200 });
+	if (amtOfQuestions + 1 === newAmtOfQuestions) res.json({ status: 200, data: newQuestions.rows });
 	else res.json({ status: 500 });
 });
 
