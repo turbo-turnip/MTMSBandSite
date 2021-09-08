@@ -70,7 +70,8 @@ export default function Practice() {
     return (
         <section className="practice-leaderboard">
             <Nav loggedIn={loggedIn} account={accountData} />
-            {loggedIn && <button className="new-time" onClick={addTimeHandler}>Submit Practice Time</button>}
+            {console.log(accountData)}
+            {(loggedIn && (accountData.name === "Atticus (admin)" || accountData.name === "Jacob Soto (admin)")) && <button className="new-time" onClick={addTimeHandler}>Submit Practice Time</button>}
             <h1>Practice Leaderboard (Top 10 Times)</h1>
             <div className="times">
                 {top10.map(time => <Time time={time} key={time.time + " " + time.name} />)}
